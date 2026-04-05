@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glossary — Panchikaran</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.glos-search{width:100%;padding:.75rem 1rem;font-size:1rem;border:1.5px solid #e8d9c0;border-radius:6px;background:#fffdf8;font-family:inherit;margin-bottom:1.25rem}
+.glos-search:focus{outline:none;border-color:#B8860B}
+.glos-cats{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem}
+.gcat{padding:.3rem .85rem;border-radius:999px;border:1.5px solid #e8d9c0;background:#fffdf8;font-size:.78rem;font-weight:600;cursor:pointer;transition:all .15s;color:#5C3A1A}
+.gcat:hover,.gcat.active{background:#D4621A;border-color:#D4621A;color:#fff}
+.glos-entry{background:#fffdf8;border:1px solid #e8d9c0;border-radius:8px;padding:1rem 1.25rem;margin-bottom:.65rem}
+.glos-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.5rem}
+.glos-terms{display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem}
+.glos-san{font-family:'Noto Sans Devanagari',serif;font-size:1.15rem;font-weight:700;color:#3D1F00}
+.glos-mar{font-family:'Noto Sans Devanagari',serif;font-size:.95rem;color:#5C3A1A}
+.glos-eng{font-weight:700;color:#D4621A;font-size:.95rem}
+.glos-sep{color:#e8d9c0}
+.glos-cat-tag{font-size:.7rem;background:#F5E6C8;color:#5C3A1A;padding:.2rem .6rem;border-radius:999px;white-space:nowrap;font-weight:600}
+.glos-def-mar{font-family:'Noto Sans Devanagari',serif;font-size:.9rem;color:#3D1F00;line-height:1.8;margin-bottom:.3rem}
+.glos-def-eng{font-size:.9rem;color:#5C3A1A;line-height:1.7}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a class="topnav-home" href="index.html">ॐ पंचीकरण</a><span class="topnav-sep">|</span>
+  <a href="introduction.html">Introduction</a><a href="panchikaran-process.html">Process</a>
+  <a href="three-bodies.html">Three Bodies</a><a href="analogies.html">Analogies</a>
+  <a href="prakriyas.html">Prakriyas</a><a href="koshtakas.html">Tables</a>
+  <a href="tat-tvam-asi.html">Tat Tvam Asi</a><a href="liberation.html">Liberation</a>
+</nav>
+<div class="page-hero">
+  <div class="page-hero-om">📖</div>
+  <h1>संस्कृत शब्दकोश</h1><h2>Sanskrit Glossary</h2>
+  <p>28 key terms — Sanskrit · Marathi · English · with definitions in both languages</p>
+</div>
+<div class="container">
+
+<input class="glos-search" id="search" placeholder="Search Sanskrit, Marathi, English, or definition…" oninput="filterGlossary()">
+
+<div class="glos-cats" id="cats">
+  <button class="gcat active" onclick="filterCat('all',this)">All (28)</button>
+  <button class="gcat" onclick="filterCat('Core Concepts',this)">Core Concepts</button>
+  <button class="gcat" onclick="filterCat('Sadhana',this)">Sadhana</button>
+  <button class="gcat" onclick="filterCat('Elements',this)">Elements</button>
+  <button class="gcat" onclick="filterCat('Subtle Body',this)">Subtle Body</button>
+  <button class="gcat" onclick="filterCat('Three Bodies',this)">Three Bodies</button>
+  <button class="gcat" onclick="filterCat('Mahavakya',this)">Mahavakya</button>
+  <button class="gcat" onclick="filterCat('Liberation',this)">Liberation</button>
+</div>
+
+<div id="glossary-list">
+
+<div class="glos-entry" data-cat="Core Concepts" data-search="आत्मन् आत्मा atman self consciousness">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">आत्मन्</span><span class="glos-sep">·</span><span class="glos-mar">आत्मा</span><span class="glos-sep">·</span><span class="glos-eng">Atman</span></div><span class="glos-cat-tag">Core Concepts</span></div>
+  <p class="glos-def-mar">प्रत्येक प्राण्याचे खरे स्वरूप — शुद्ध चेतना. ब्रह्माशी अभिन्न. देह, मन, बुद्धी यांचा साक्षी. अजन्मा, नित्य, शाश्वत.</p>
+  <p class="glos-def-eng">The innermost Self — Pure Consciousness that is the true nature of every being. Identical with Brahman. The witness (Sakshi) of body, mind, and intellect. Unborn, eternal, unchanging.</p>
+</div>
+
+<div class="glos-entry" data-cat="Core Concepts" data-search="ब्रह्मन् ब्रह्म brahman absolute reality consciousness">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">ब्रह्मन्</span><span class="glos-sep">·</span><span class="glos-mar">ब्रह्म</span><span class="glos-sep">·</span><span class="glos-eng">Brahman</span></div><span class="glos-cat-tag">Core Concepts</span></div>
+  <p class="glos-def-mar">परम सत्य — अनंत, स्वयंप्रकाश, अद्वैत शुद्ध चेतना. एकमेव, द्वितीय नाही. सत्-चित्-आनंदरूप. सर्व सृष्टीचे मूळ कारण.</p>
+  <p class="glos-def-eng">The Absolute Reality — infinite, self-luminous, non-dual Pure Consciousness. The one without a second. Sat-Chit-Ananda. The ultimate cause of all creation. What remains when all appearances are seen through.</p>
+</div>
+
+<div class="glos-entry" data-cat="Core Concepts" data-search="पंचीकरण panchikaran fivefold combination elements">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">पंचीकरण</span><span class="glos-sep">·</span><span class="glos-mar">पंचीकरण</span><span class="glos-sep">·</span><span class="glos-eng">Panchikaran</span></div><span class="glos-cat-tag">Core Concepts</span></div>
+  <p class="glos-def-mar">प्रत्येक सूक्ष्म भूताचे दोन भाग होतात — अर्धे स्वत:चे राहते, उरलेल्याचे चार भाग होऊन इतर चार भूतांना दिले जातात. यामुळे पाच स्थूल महाभूते तयार होतात.</p>
+  <p class="glos-def-eng">The fivefold combination: each subtle element gives half of itself pure, and distributes the other half as ⅛ each to the other four elements, producing the five gross elements from which all physical matter is made.</p>
+</div>
+
+<div class="glos-entry" data-cat="Core Concepts" data-search="माया maya illusion cosmic power">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">माया</span><span class="glos-sep">·</span><span class="glos-mar">माया</span><span class="glos-sep">·</span><span class="glos-eng">Maya</span></div><span class="glos-cat-tag">Core Concepts</span></div>
+  <p class="glos-def-mar">ब्रह्माला नाम-रूप देणारी शक्ती. ती सत् नाही, असत् नाही — अनिर्वचनीय आहे. जगाची प्रतीती देणारी पण स्वतः भासमान शक्ती.</p>
+  <p class="glos-def-eng">The cosmic power that makes Brahman appear as the world of multiplicity — names and forms. Neither real (it has no independent existence) nor unreal (it produces real-seeming effects) — it is inexplicable (Anirvachaniya). It is beginningless ignorance at the cosmic level.</p>
+</div>
+
+<div class="glos-entry" data-cat="Core Concepts" data-search="अविद्या avidya ignorance individual">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">अविद्या</span><span class="glos-sep">·</span><span class="glos-mar">अज्ञान</span><span class="glos-sep">·</span><span class="glos-eng">Avidya</span></div><span class="glos-cat-tag">Core Concepts</span></div>
+  <p class="glos-def-mar">व्यक्तिगत अज्ञान — आत्म्यावर अनात्म्याचा अध्यास. सर्व दुःखाचे मूळ कारण. ज्ञानाने नाश पावते.</p>
+  <p class="glos-def-eng">Individual ignorance — the superimposition of the non-Self (body, mind, ego) upon the Self. The root cause of all suffering, bondage, and rebirth. Destroyed instantly by the dawn of Self-knowledge, just as darkness is destroyed by light.</p>
+</div>
+
+<div class="glos-entry" data-cat="Core Concepts" data-search="जीव jiva individual soul">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">जीव</span><span class="glos-sep">·</span><span class="glos-mar">जीव</span><span class="glos-sep">·</span><span class="glos-eng">Jiva</span></div><span class="glos-cat-tag">Core Concepts</span></div>
+  <p class="glos-def-mar">अंत:करणात प्रतिबिंबित झालेला आत्मा. उपाधींमुळे बद्ध वाटतो, परंतु खऱ्या अर्थाने मुक्तच आहे. जीव आणि ब्रह्म तत्त्वतः एकच.</p>
+  <p class="glos-def-eng">The individual soul — Brahman reflected in the Antahkarana, appearing bound due to identification with the body-mind complex. The Jiva is essentially identical with Brahman, but appears limited due to Avidya and Upadhi. Recognizing this identity is Moksha.</p>
+</div>
+
+<div class="glos-entry" data-cat="Core Concepts" data-search="उपाधि upadhi limiting adjunct body mind ego">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">उपाधि</span><span class="glos-sep">·</span><span class="glos-mar">उपाधी</span><span class="glos-sep">·</span><span class="glos-eng">Upadhi</span></div><span class="glos-cat-tag">Core Concepts</span></div>
+  <p class="glos-def-mar">देह, मन, अहंकार — जे अनंत आत्म्याला मर्यादित वाटायला लावतात. रंगीत काचेसारखे — काच रंगलेली आहे, प्रकाश नाही. तशा उपाधी आहेत, आत्मा नाही.</p>
+  <p class="glos-def-eng">Limiting adjuncts — the body, mind, and ego that appear to limit the infinite Self, like a coloured glass that appears to tint colourless light. The glass is coloured; the light is not. Remove the glass and the light is seen in its natural purity. Remove the Upadhi through Self-knowledge and the Self is seen in its natural infinity.</p>
+</div>
+
+<div class="glos-entry" data-cat="Core Concepts" data-search="सत् चित् आनंद sat chit ananda existence consciousness bliss">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">सत्-चित्-आनन्द</span><span class="glos-sep">·</span><span class="glos-mar">सत्-चित्-आनंद</span><span class="glos-sep">·</span><span class="glos-eng">Sat-Chit-Ananda</span></div><span class="glos-cat-tag">Core Concepts</span></div>
+  <p class="glos-def-mar">अस्तित्व-ज्ञान-आनंद — ब्रह्माचे त्रिविध वर्णन. या तीन वेगळ्या नाहीत — एकच अखंड सत्य. सत् म्हणजे नाश नाही, चित् म्हणजे अज्ञान नाही, आनंद म्हणजे कमतरता नाही.</p>
+  <p class="glos-def-eng">Existence-Consciousness-Bliss — the threefold description of Brahman's nature. Not three separate qualities but one indivisible Reality seen from three angles. Sat: Pure Existence that never ceases. Chit: Pure Consciousness that never dims. Ananda: Pure Bliss without cause or object.</p>
+</div>
+
+<div class="glos-entry" data-cat="Core Concepts" data-search="त्रिपुटी triputi triad knower known knowing">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">त्रिपुटी</span><span class="glos-sep">·</span><span class="glos-mar">त्रिपुटी</span><span class="glos-sep">·</span><span class="glos-eng">Triputi</span></div><span class="glos-cat-tag">Core Concepts</span></div>
+  <p class="glos-def-mar">जाणणारा, जाणले जाणारे आणि जाणण्याची क्रिया — ही त्रिपुटी निर्विकल्प समाधीत विलीन होते. तोपर्यंत हीच बंधनाचे कारण आहे.</p>
+  <p class="glos-def-eng">The triad of knower (Jnata), known (Jneya), and the act of knowing (Jnana) — or perceiver, perceived, and perception. The entire experience of Samsara is made of Triputi. In Nirvikalpa Samadhi, this Triputi completely dissolves into pure undivided Consciousness.</p>
+</div>
+
+<div class="glos-entry" data-cat="Core Concepts" data-search="कर्म karma action impression rebirth">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">कर्म</span><span class="glos-sep">·</span><span class="glos-mar">कर्म</span><span class="glos-sep">·</span><span class="glos-eng">Karma</span></div><span class="glos-cat-tag">Core Concepts</span></div>
+  <p class="glos-def-mar">अहंकाराने केलेले कर्म संस्कार निर्माण करते जे भावी जन्माला कारण होते. तीन प्रकार: संचित, क्रियमाण, प्रारब्ध. ज्ञानाने संचित आणि क्रियमाण नष्ट होतात.</p>
+  <p class="glos-def-eng">Action and its residual impressions. Three types: Sanchita (accumulated past Karma), Kriyamana (Karma being created now), Prarabdha (Karma ripening in this life). Self-knowledge destroys Sanchita and Kriyamana instantly; Prarabdha must be exhausted through experience even by the Jnani.</p>
+</div>
+
+<div class="glos-entry" data-cat="Sadhana" data-search="विवेक viveka discrimination real unreal">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">विवेक</span><span class="glos-sep">·</span><span class="glos-mar">विवेक</span><span class="glos-sep">·</span><span class="glos-eng">Viveka</span></div><span class="glos-cat-tag">Sadhana</span></div>
+  <p class="glos-def-mar">नित्य-अनित्य, आत्मा-अनात्मा यांच्यात भेद करण्याची क्षमता. पहिले साधन. विवेकाशिवाय वैराग्य येत नाही.</p>
+  <p class="glos-def-eng">Discrimination — the capacity to distinguish between the Real (Nitya/eternal) and the unreal (Anitya/impermanent), between the Self and the non-Self. The first and foundational qualification of the Vedanta student.</p>
+</div>
+
+<div class="glos-entry" data-cat="Sadhana" data-search="वैराग्य vairagya dispassion detachment">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">वैराग्य</span><span class="glos-sep">·</span><span class="glos-mar">वैराग्य</span><span class="glos-sep">·</span><span class="glos-eng">Vairagya</span></div><span class="glos-cat-tag">Sadhana</span></div>
+  <p class="glos-def-mar">या लोकातले व परलोकातले भोगांसंबंधाने इच्छा राहिल्या (इच्छेचा अभाव) — त्याचे नाव वैराग्य. दुसरे साधन.</p>
+  <p class="glos-def-eng">Dispassion — the natural falling away of craving for enjoyments of this world and the next, born from the recognition (through Viveka) that all such enjoyments are impermanent. Not forced suppression of desire but genuine disinterest born of wisdom.</p>
+</div>
+
+<div class="glos-entry" data-cat="Sadhana" data-search="मुमुक्षुता mumukshatva desire liberation burning">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">मुमुक्षुता</span><span class="glos-sep">·</span><span class="glos-mar">मुमुक्षा</span><span class="glos-sep">·</span><span class="glos-eng">Mumukshatva</span></div><span class="glos-cat-tag">Sadhana</span></div>
+  <p class="glos-def-mar">मोक्षाची तीव्र इच्छा — सर्व इच्छांपेक्षा बलवान असलेली मुक्तीची आकांक्षा. चौथे साधन. हे नसेल तर वेदान्ताचा अभ्यास निष्फळ.</p>
+  <p class="glos-def-eng">The burning, intense desire for liberation — stronger than any other desire. The fourth and culminating qualification. Without Mumukshatva, the other three qualifications remain merely intellectual achievements. With intense Mumukshatva, even partial other qualifications suffice for the teaching to bear fruit.</p>
+</div>
+
+<div class="glos-entry" data-cat="Sadhana" data-search="षट्संपत्ती shat sampatti six inner wealth shama dama">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">षट्संपत्ती</span><span class="glos-sep">·</span><span class="glos-mar">षट्संपत्ती</span><span class="glos-sep">·</span><span class="glos-eng">Shat-Sampatti</span></div><span class="glos-cat-tag">Sadhana</span></div>
+  <p class="glos-def-mar">वेदान्त अभ्यासासाठी आवश्यक सहा आंतरिक संपत्ती: शम (मनाचा निग्रह), दम (इंद्रियांचा निग्रह), उपरती (विषयांपासून माघार), तितिक्षा (सहनशीलता), श्रद्धा (विश्वास), समाधान (एकाग्रता).</p>
+  <p class="glos-def-eng">The sixfold inner wealth required for Vedanta study: 1. Shama (control of mind), 2. Dama (control of sense organs), 3. Uparama (withdrawal from sense enjoyment), 4. Titiksha (endurance of pairs of opposites), 5. Shraddha (faith in Guru and scripture), 6. Samadhana (one-pointed concentration).</p>
+</div>
+
+<div class="glos-entry" data-cat="Sadhana" data-search="गुरु guru teacher realized">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">गुरु</span><span class="glos-sep">·</span><span class="glos-mar">गुरु</span><span class="glos-sep">·</span><span class="glos-eng">Guru</span></div><span class="glos-cat-tag">Sadhana</span></div>
+  <p class="glos-def-mar">आत्मसाक्षात्कार झालेला सद्गुरू जो योग्य शिष्याला आत्मज्ञान देऊ शकतो. गुरू हेच ब्रह्म आहे. गुरूशिवाय आत्मज्ञान नाही.</p>
+  <p class="glos-def-eng">The Self-realized spiritual teacher who is competent to transmit Self-knowledge to a qualified student. The Guru is not merely a teacher of information — the Guru is identified with Brahman itself, and the Guru's presence directly radiates Self-knowledge to the receptive student.</p>
+</div>
+
+<div class="glos-entry" data-cat="Sadhana" data-search="श्रवण shravana hearing listening">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">श्रवण</span><span class="glos-sep">·</span><span class="glos-mar">श्रवण</span><span class="glos-sep">·</span><span class="glos-eng">Shravana</span></div><span class="glos-cat-tag">Sadhana</span></div>
+  <p class="glos-def-mar">ज्ञानयोगाचे पहिले साधन — सद्गुरूकडून उपनिषदांचे सावधपणे, वारंवार श्रवण.</p>
+  <p class="glos-def-eng">Hearing — the first of the three disciplines of Jnana Yoga: systematic, attentive, repeated listening to the Upanishadic teaching from a qualified Guru. Not casual hearing but deep, wholehearted receptivity.</p>
+</div>
+
+<div class="glos-entry" data-cat="Sadhana" data-search="मनन manana reflection contemplation doubt">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">मनन</span><span class="glos-sep">·</span><span class="glos-mar">मनन</span><span class="glos-sep">·</span><span class="glos-eng">Manana</span></div><span class="glos-cat-tag">Sadhana</span></div>
+  <p class="glos-def-mar">दुसरे साधन — ऐकलेल्या शिकवणीवर वारंवार विचार करून शंका दूर करणे. बौद्धिक विश्वास दृढ करणे.</p>
+  <p class="glos-def-eng">Reflection — the second discipline: repeatedly turning the teaching over in the intellect to remove all doubts until the teaching becomes firm, unshakeable conviction rather than merely intellectual possibility.</p>
+</div>
+
+<div class="glos-entry" data-cat="Sadhana" data-search="निदिध्यासन nididhyasana meditation vasana">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">निदिध्यासन</span><span class="glos-sep">·</span><span class="glos-mar">निदिध्यासन</span><span class="glos-sep">·</span><span class="glos-eng">Nididhyasana</span></div><span class="glos-cat-tag">Sadhana</span></div>
+  <p class="glos-def-mar">तिसरे साधन — सत्याचे दीर्घ ध्यान करणे जेणेकरून सर्व विरोधी वासना नाश पावतात.</p>
+  <p class="glos-def-eng">Contemplation — the third discipline: sustained, deep meditation on the truth of Brahman until all contrary habitual thought-patterns (Vasanas) are completely dissolved and the recognition of the Self is total, constant, and effortless.</p>
+</div>
+
+<div class="glos-entry" data-cat="Sadhana" data-search="सत्संग satsanga company truth sage">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">सत्संग</span><span class="glos-sep">·</span><span class="glos-mar">सत्संग</span><span class="glos-sep">·</span><span class="glos-eng">Satsanga</span></div><span class="glos-cat-tag">Sadhana</span></div>
+  <p class="glos-def-mar">साधुसमागम — आत्मज्ञानी महात्म्याचा सहवास. आध्यात्मिक उन्नतीचा सर्वोत्तम उपाय. संसाररूप समुद्र पार करण्याची नौका.</p>
+  <p class="glos-def-eng">Company of Truth — being in the presence of a Self-realized sage or devoted seekers. Described in Panchikaran as the most powerful accelerant of spiritual development — even one moment of genuine Satsanga can dissolve Vasanas that years of solo practice could not touch.</p>
+</div>
+
+<div class="glos-entry" data-cat="Elements" data-search="पंचमहाभूत pancha mahabhuta five great elements">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">पंचमहाभूत</span><span class="glos-sep">·</span><span class="glos-mar">पंचमहाभूते</span><span class="glos-sep">·</span><span class="glos-eng">Pancha Mahabhuta</span></div><span class="glos-cat-tag">Elements</span></div>
+  <p class="glos-def-mar">आकाश, वायू, तेज, आप, पृथ्वी — पंचीकरणानंतर निर्माण झालेले पाच स्थूल महाभूते. सर्व भौतिक सृष्टी यांच्यापासून बनलेली आहे.</p>
+  <p class="glos-def-eng">The five great elements — Akasha (Space), Vayu (Air), Tejas (Fire), Ap (Water), Prithvi (Earth) — that constitute all gross matter after Panchikaran. Everything in the physical universe is made of these five in different combinations.</p>
+</div>
+
+<div class="glos-entry" data-cat="Elements" data-search="तन्मात्र tanmatra subtle essence sound touch form taste smell">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">तन्मात्र</span><span class="glos-sep">·</span><span class="glos-mar">तन्मात्र</span><span class="glos-sep">·</span><span class="glos-eng">Tanmatra</span></div><span class="glos-cat-tag">Elements</span></div>
+  <p class="glos-def-mar">शब्द, स्पर्श, रूप, रस, गंध — पाच तन्मात्रे. पंचीकरणापूर्वीची सूक्ष्म भूतांची शुद्ध अवस्था. ही अत्यंत सूक्ष्म असतात — इंद्रियांना दिसत नाहीत.</p>
+  <p class="glos-def-eng">The five subtle essences — Shabda (Sound), Sparsha (Touch), Rupa (Form), Rasa (Taste), Gandha (Smell) — that are the seed-forms of the five gross elements before Panchikaran. Too subtle to be perceived by the senses.</p>
+</div>
+
+<div class="glos-entry" data-cat="Subtle Body" data-search="अंत:करण antahkarana inner instrument mind intellect ego memory">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">अंत:करण</span><span class="glos-sep">·</span><span class="glos-mar">अंत:करण</span><span class="glos-sep">·</span><span class="glos-eng">Antahkarana</span></div><span class="glos-cat-tag">Subtle Body</span></div>
+  <p class="glos-def-mar">मन, बुद्धी, चित्त, अहंकार — या चार अंत:करणांचा एकत्र व्यवहार म्हणजे 'मन'. अंत:करण हेच जीवाचे मुख्य बंधन आहे.</p>
+  <p class="glos-def-eng">The fourfold inner instrument: Manas (doubting deliberating mind), Buddhi (determining intellect), Chitta (memory and contemplation), Ahamkara (ego-sense). These four together constitute what we ordinarily call "the mind." The Antahkarana is the primary seat of bondage.</p>
+</div>
+
+<div class="glos-entry" data-cat="Subtle Body" data-search="वासना vasana impression latent tendency desire">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">वासना</span><span class="glos-sep">·</span><span class="glos-mar">वासना</span><span class="glos-sep">·</span><span class="glos-eng">Vasana</span></div><span class="glos-cat-tag">Subtle Body</span></div>
+  <p class="glos-def-mar">चित्तात साठलेले भूतकालीन कर्मांचे सूक्ष्म संस्कार. भविष्यातील इच्छा व पुनर्जन्माचे कारण. निदिध्यासनाने नाश पावतात.</p>
+  <p class="glos-def-eng">Subtle impressions left by past actions and experiences, stored in the Chitta. They drive future desires, actions, and rebirths. Destroyed by Nididhyasana (sustained contemplation) and by Satsanga.</p>
+</div>
+
+<div class="glos-entry" data-cat="Three Bodies" data-search="कोश kosha sheath annamaya pranamaya manomaya vijnanamaya anandamaya">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">कोश</span><span class="glos-sep">·</span><span class="glos-mar">कोश</span><span class="glos-sep">·</span><span class="glos-eng">Kosha (Sheath)</span></div><span class="glos-cat-tag">Three Bodies</span></div>
+  <p class="glos-def-mar">आत्म्याला झाकणारे पाच कोश: अन्नमय, प्राणमय, मनोमय, विज्ञानमय, आनंदमय. आत्मा या सर्वांचा साक्षी आहे, कोशरूप नाही.</p>
+  <p class="glos-def-eng">The five sheaths that appear to cover the Self — Annamaya (physical), Pranamaya (vital), Manomaya (mental), Vijnanamaya (intellectual), Anandamaya (bliss). The Atman is the witness of all five sheaths — it is not identical with any of them.</p>
+</div>
+
+<div class="glos-entry" data-cat="Mahavakya" data-search="तत्त्वमसि tat tvam asi that thou art chandogya">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">तत्त्वमसि</span><span class="glos-sep">·</span><span class="glos-mar">तत्त्वमसि</span><span class="glos-sep">·</span><span class="glos-eng">Tat Tvam Asi</span></div><span class="glos-cat-tag">Mahavakya</span></div>
+  <p class="glos-def-mar">'तू तेच आहेस' — छांदोग्य उपनिषदातील महावाक्य. 'तत्' = ब्रह्म, 'त्वम्' = जीव, 'असि' = पूर्ण अभिन्नता.</p>
+  <p class="glos-def-eng">"That Thou Art" — the Mahavakya from Chandogya Upanishad (Samaveda). Declares the absolute identity of the individual Jiva (Tvam) and Brahman (Tat). The apparent contradiction is resolved through Bhaga-tyaga-lakshana.</p>
+</div>
+
+<div class="glos-entry" data-cat="Mahavakya" data-search="अहं ब्रह्मास्मि aham brahmasmi i am brahman brihadaranyaka">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">अहं ब्रह्मास्मि</span><span class="glos-sep">·</span><span class="glos-mar">अहं ब्रह्मास्मि</span><span class="glos-sep">·</span><span class="glos-eng">Aham Brahmasmi</span></div><span class="glos-cat-tag">Mahavakya</span></div>
+  <p class="glos-def-mar">'मी ब्रह्म आहे' — बृहदारण्यक उपनिषदातील महावाक्य. ही केवळ वाक्यरचना नाही — हा साक्षात्काराचा उद्गार आहे.</p>
+  <p class="glos-def-eng">"I am Brahman" — the Mahavakya from Brihadaranyaka Upanishad (Yajurveda). The direct first-person assertion of identity with Brahman. Not a statement to be repeated as a mantra but a recognition to be lived as direct experience.</p>
+</div>
+
+<div class="glos-entry" data-cat="Liberation" data-search="मोक्ष moksha liberation freedom rebirth">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">मोक्ष</span><span class="glos-sep">·</span><span class="glos-mar">मोक्ष</span><span class="glos-sep">·</span><span class="glos-eng">Moksha</span></div><span class="glos-cat-tag">Liberation</span></div>
+  <p class="glos-def-mar">जन्ममृत्यूच्या चक्रातून कायमची मुक्ती. ब्रह्माशी अभिन्नतेच्या साक्षात्काराने. मोक्ष भविष्यात मिळवायचा नाही — आत्मा नित्यमुक्त आहे.</p>
+  <p class="glos-def-eng">Liberation — permanent cessation of the cycle of birth and death through direct recognition of one's identity with Brahman. Moksha is not a future event or achievement — the Self is always already free. Practice only removes the ignorance that obscures this ever-present freedom.</p>
+</div>
+
+<div class="glos-entry" data-cat="Liberation" data-search="समाधि samadhi absorption meditation savikalpa nirvikalpa">
+  <div class="glos-head"><div class="glos-terms"><span class="glos-san">समाधि</span><span class="glos-sep">·</span><span class="glos-mar">समाधी</span><span class="glos-sep">·</span><span class="glos-eng">Samadhi</span></div><span class="glos-cat-tag">Liberation</span></div>
+  <p class="glos-def-mar">सविकल्प समाधीत त्रिपुटी असते; निर्विकल्प समाधीत शुद्ध अखंड चेतना असते. निर्विकल्प समाधी म्हणजे ब्रह्मसाक्षात्कार.</p>
+  <p class="glos-def-eng">Complete meditative absorption. Savikalpa Samadhi retains subtle distinctions (Triputi). Nirvikalpa Samadhi is pure undivided Consciousness with no subject-object distinction whatsoever — this is the direct experience of Brahman and the gateway to final liberation.</p>
+</div>
+
+</div><!-- end glossary-list -->
+
+<div class="page-nav">
+  <a href="liberation.html">← Liberation</a>
+  <a href="index.html">↑ Home</a>
+</div>
+</div>
+
+<script>
+let activeCat = 'all';
+function filterGlossary(){
+  const q = document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.glos-entry').forEach(e=>{
+    const txt = e.dataset.search + ' ' + e.textContent.toLowerCase();
+    const catMatch = activeCat==='all' || e.dataset.cat===activeCat;
+    e.classList.toggle('hidden', !txt.includes(q) || !catMatch);
+  });
+}
+function filterCat(cat, btn){
+  activeCat = cat;
+  document.querySelectorAll('.gcat').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  filterGlossary();
+}
+</script>
+
+<footer><p>सार्थ, सटीक पंचीकरण — मराठी | Tukaram Book Depot, Mumbai, 2008</p></footer>
+</body>
+</html>

@@ -1,0 +1,165 @@
+/* ═══════════════════════════════════════════════════════
+   Panchikaran Website — Shared Styles
+   ═══════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Devanagari:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --saffron:#D4621A;--gold:#B8860B;--gold-light:#F5E6C8;
+  --dark:#1A0A00;--brown:#3D1F00;--cream:#FDF8EF;--white:#FFFDF8;
+  --text:#2C1400;--text-mid:#5C3A1A;--text-light:#8B6540;
+  --radius:8px;
+}
+body{font-family:'Cormorant Garamond',serif;background:var(--cream);color:var(--text);line-height:1.7;font-size:17px}
+
+/* TOP NAV */
+.topnav{
+  background:var(--dark);padding:.75rem 2rem;
+  display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
+  position:sticky;top:0;z-index:100;
+}
+.topnav-home{
+  font-family:'Noto Sans Devanagari',serif;font-size:1.1rem;
+  color:var(--gold);text-decoration:none;font-weight:700;margin-right:.5rem;
+}
+.topnav a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.82rem;transition:color .15s}
+.topnav a:hover{color:var(--gold)}
+.topnav-sep{color:rgba(255,255,255,.15);font-size:.7rem}
+
+/* PAGE HEADER */
+.page-hero{
+  background:linear-gradient(135deg,var(--brown) 0%,#5C3010 100%);
+  padding:3rem 2rem 2.5rem;text-align:center;
+}
+.page-hero-om{font-family:'Noto Sans Devanagari',serif;font-size:2.5rem;color:var(--gold);opacity:.5;margin-bottom:.5rem}
+.page-hero h1{font-family:'Noto Sans Devanagari',serif;font-size:2.5rem;color:#FFF8EE;font-weight:700;line-height:1.2;margin-bottom:.25rem}
+.page-hero h2{font-size:1.2rem;color:var(--gold-light);font-weight:300;letter-spacing:.08em;margin-bottom:.5rem}
+.page-hero p{color:rgba(255,255,255,.5);font-style:italic;font-size:.9rem}
+
+/* CONTAINER */
+.container{max-width:860px;margin:0 auto;padding:3rem 2rem}
+
+/* TYPOGRAPHY */
+h2.section-head{
+  font-family:'Noto Sans Devanagari',serif;font-size:1.6rem;
+  color:var(--brown);margin:2.5rem 0 .25rem;border-bottom:2px solid var(--gold-light);
+  padding-bottom:.4rem;
+}
+h3.sub-head{font-size:1.2rem;color:var(--saffron);margin:1.5rem 0 .5rem;font-style:italic}
+p.marathi{
+  font-family:'Noto Sans Devanagari',serif;font-size:1rem;
+  color:var(--brown);line-height:1.9;margin-bottom:.75rem;
+}
+p.english{font-size:1rem;color:var(--text-mid);line-height:1.8;margin-bottom:.75rem}
+.bilingual{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.25rem 0}
+.lang-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:.35rem}
+.divider{border:none;border-top:1px solid var(--gold-light);margin:2.5rem 0}
+
+/* SHLOKA BOX */
+.shloka-box{
+  background:var(--dark);border-radius:var(--radius);
+  padding:1.25rem 1.75rem;margin:1.5rem 0;text-align:center;
+}
+.shloka-text{font-family:'Noto Sans Devanagari',serif;font-size:1.25rem;color:var(--gold);display:block;margin-bottom:.35rem;line-height:1.7}
+.shloka-trans{font-size:.9rem;color:rgba(255,255,255,.5);font-style:italic}
+
+/* INFO BOX */
+.info-box{
+  background:var(--gold-light);border-left:4px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:1rem 1.25rem;margin:1.25rem 0;
+}
+.info-box p.marathi{color:var(--brown);margin-bottom:.4rem}
+.info-box p.english{color:var(--text-mid);font-size:.95rem}
+
+/* KEY POINTS LIST */
+.key-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;margin:.75rem 0}
+.key-list li{
+  padding:.45rem .85rem .45rem 1.6rem;
+  position:relative;font-size:.95rem;color:var(--text-mid);
+  background:var(--white);border-radius:4px;
+  border-left:3px solid var(--gold-light);
+}
+.key-list li::before{content:'◆';position:absolute;left:.5rem;color:var(--saffron);font-size:.5rem;top:.7em}
+.key-list li.marathi{font-family:'Noto Sans Devanagari',serif;color:var(--brown);font-size:.95rem}
+
+/* TABLE */
+.content-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.9rem}
+.content-table th{
+  background:var(--brown);color:var(--white);
+  padding:.6rem .85rem;text-align:left;
+}
+.content-table th .th-marathi{font-family:'Noto Sans Devanagari',serif;font-size:.95rem;display:block}
+.content-table th .th-eng{font-size:.72rem;opacity:.65;font-weight:400}
+.content-table td{
+  padding:.55rem .85rem;border:1px solid var(--gold-light);
+  vertical-align:top;line-height:1.5;
+}
+.content-table tr:nth-child(odd){background:var(--cream)}
+.content-table tr:nth-child(even){background:var(--white)}
+.content-table tr:hover{background:var(--gold-light)}
+.content-table td:first-child{font-family:'Noto Sans Devanagari',serif;font-weight:600;color:var(--brown)}
+
+/* ELEMENT CARDS */
+.element-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin:1.5rem 0}
+.element-card{border-radius:var(--radius);padding:1.25rem;text-align:center}
+.el-sym{font-size:2.5rem;margin-bottom:.35rem}
+.el-name-dev{font-family:'Noto Sans Devanagari',serif;font-size:1rem;font-weight:700;display:block}
+.el-name-eng{font-size:.8rem;color:var(--text-mid);display:block;margin-bottom:.5rem}
+.el-detail{font-size:.75rem;color:var(--text-light);line-height:1.6}
+
+/* QUOTE */
+.quote-box{
+  background:var(--brown);border-radius:var(--radius);
+  padding:1.75rem 2rem;margin:2rem 0;text-align:center;
+}
+.quote-box p{font-size:1.15rem;font-style:italic;color:var(--gold-light);margin-bottom:.4rem}
+.quote-box cite{font-size:.78rem;color:rgba(255,255,255,.35)}
+
+/* ACCORDION */
+.accordion{margin:1.5rem 0}
+.acc-item{border:1px solid var(--gold-light);border-radius:var(--radius);margin-bottom:.6rem;overflow:hidden}
+.acc-head{
+  background:var(--white);padding:.85rem 1.1rem;cursor:pointer;
+  display:flex;align-items:center;gap:.85rem;
+  transition:background .15s;
+}
+.acc-head:hover{background:var(--gold-light)}
+.acc-num{
+  width:32px;height:32px;background:var(--saffron);color:#fff;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:.82rem;flex-shrink:0;
+}
+.acc-title-dev{font-family:'Noto Sans Devanagari',serif;font-weight:700;font-size:.95rem;color:var(--brown);display:block}
+.acc-title-eng{font-size:.82rem;color:var(--text-mid)}
+.acc-body{
+  background:var(--cream);border-top:1px solid var(--gold-light);
+  padding:1.25rem 1.5rem;display:none;
+}
+.acc-item.open .acc-body{display:block}
+.acc-item.open .acc-head{background:var(--gold-light)}
+
+/* PAGE NAV */
+.page-nav{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--gold-light);
+}
+.page-nav a{
+  color:var(--saffron);text-decoration:none;font-size:.9rem;font-weight:600;
+  display:flex;align-items:center;gap:.4rem;
+}
+.page-nav a:hover{color:var(--brown)}
+
+/* FOOTER */
+footer{
+  background:var(--dark);color:rgba(255,255,255,.35);
+  text-align:center;padding:2rem;font-size:.78rem;margin-top:3rem;
+}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .bilingual{grid-template-columns:1fr}
+  .page-hero h1{font-size:1.9rem}
+  .container{padding:2rem 1.25rem}
+  .topnav{gap:.5rem}
+}

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पंचीकरण — Panchikaran: Advaita Vedānta</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Devanagari:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --saffron:#D4621A;--gold:#B8860B;--gold-light:#F5E6C8;
+  --dark:#1A0A00;--brown:#3D1F00;--cream:#FDF8EF;--white:#FFFDF8;
+  --text:#2C1400;--text-mid:#5C3A1A;--text-light:#8B6540;
+}
+body{font-family:'Cormorant Garamond',serif;background:var(--cream);color:var(--text);line-height:1.7}
+
+/* HERO */
+.hero{
+  background:linear-gradient(160deg,#1A0A00 0%,#3D1F00 60%,#5C3010 100%);
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:3rem 2rem;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 40%,rgba(184,134,11,.18) 0%,transparent 65%);
+}
+.hero-om{
+  font-family:'Noto Sans Devanagari',serif;font-size:6rem;
+  color:var(--gold);opacity:.5;line-height:1;margin-bottom:1.5rem;
+  animation:pulse 4s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:.8}}
+.hero h1{
+  font-family:'Noto Sans Devanagari',serif;font-size:4.5rem;
+  color:#FFF8EE;font-weight:700;line-height:1;margin-bottom:.5rem;
+}
+.hero h2{
+  font-family:'Cormorant Garamond',serif;font-size:2rem;
+  font-weight:300;color:var(--gold-light);letter-spacing:.12em;margin-bottom:.5rem;
+}
+.hero-sub{
+  font-family:'Noto Sans Devanagari',serif;font-size:1rem;
+  color:rgba(255,255,255,.45);margin-bottom:2rem;
+}
+.hero-mahavakya{
+  border:1px solid rgba(184,134,11,.4);padding:1.25rem 2.5rem;
+  border-radius:4px;display:inline-block;margin-bottom:2.5rem;
+}
+.hero-mahavakya .devanagari{
+  font-family:'Noto Sans Devanagari',serif;font-size:2.2rem;
+  color:var(--gold);display:block;
+}
+.hero-mahavakya .translation{
+  font-style:italic;color:rgba(255,255,255,.55);font-size:1rem;
+}
+.nav-pills{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;}
+.nav-pill{
+  padding:.5rem 1.25rem;border:1px solid rgba(255,255,255,.2);
+  border-radius:999px;color:rgba(255,255,255,.75);text-decoration:none;
+  font-size:.85rem;transition:all .2s;letter-spacing:.04em;
+}
+.nav-pill:hover{background:var(--saffron);border-color:var(--saffron);color:#fff}
+
+/* SECTIONS */
+.container{max-width:860px;margin:0 auto;padding:4rem 2rem}
+.section-title{
+  font-family:'Noto Sans Devanagari',serif;font-size:1.8rem;
+  color:var(--brown);margin-bottom:.25rem;
+}
+.section-sub{font-size:1rem;color:var(--text-light);margin-bottom:2rem;font-style:italic}
+.divider{border:none;border-top:1px solid var(--gold-light);margin:3rem 0}
+
+/* FEATURE GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.25rem;margin-bottom:3rem}
+.feature-card{
+  background:var(--white);border:1px solid var(--gold-light);
+  border-radius:8px;padding:1.5rem;text-decoration:none;
+  color:var(--text);display:block;transition:all .2s;
+}
+.feature-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(60,30,0,.12);border-color:var(--gold)}
+.fc-icon{font-size:1.8rem;margin-bottom:.75rem}
+.fc-title-devanagari{font-family:'Noto Sans Devanagari',serif;font-size:1rem;font-weight:700;color:var(--brown);margin-bottom:.1rem}
+.fc-title-eng{font-size:.9rem;color:var(--saffron);font-weight:600;margin-bottom:.5rem}
+.fc-desc{font-size:.88rem;color:var(--text-mid);line-height:1.6}
+
+/* STATS */
+.stats{display:flex;gap:2rem;flex-wrap:wrap;background:var(--brown);
+  border-radius:8px;padding:2rem;margin-bottom:3rem}
+.stat{flex:1;min-width:80px;text-align:center}
+.stat-num{font-size:2.5rem;font-weight:700;color:var(--gold);line-height:1}
+.stat-label{font-size:.75rem;color:rgba(255,255,255,.55);margin-top:.3rem;line-height:1.4}
+
+/* INTRO TEXT */
+.intro-text{font-size:1.1rem;line-height:1.9;color:var(--text-mid);margin-bottom:1.5rem}
+.intro-marathi{
+  font-family:'Noto Sans Devanagari',serif;font-size:1rem;
+  line-height:1.9;color:var(--brown);padding-left:1.25rem;
+  border-left:3px solid var(--gold);margin-bottom:2rem;
+}
+.quote-block{
+  background:var(--brown);color:var(--gold-light);
+  border-radius:8px;padding:2rem 2.5rem;margin:2rem 0;text-align:center;
+}
+.quote-text{font-size:1.3rem;font-style:italic;margin-bottom:.5rem}
+.quote-source{font-size:.8rem;opacity:.5}
+
+footer{background:var(--dark);color:rgba(255,255,255,.4);text-align:center;padding:2rem;font-size:.8rem}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-om">ॐ</div>
+  <h1>पंचीकरण</h1>
+  <h2>PANCHIKARAN</h2>
+  <p class="hero-sub">सार्थ, सटीक — मराठी • Sartha Satik — Marathi</p>
+  <div class="hero-mahavakya">
+    <span class="devanagari">तत्त्वमसि</span>
+    <span class="translation">Tat Tvam Asi — That Thou Art</span>
+  </div>
+  <nav class="nav-pills">
+    <a class="nav-pill" href="introduction.html">Introduction</a>
+    <a class="nav-pill" href="panchikaran-process.html">Panchikaran Process</a>
+    <a class="nav-pill" href="three-bodies.html">Three Bodies</a>
+    <a class="nav-pill" href="analogies.html">Analogies</a>
+    <a class="nav-pill" href="prakriyas.html">Nine Prakriyas</a>
+    <a class="nav-pill" href="koshtakas.html">Tables</a>
+    <a class="nav-pill" href="tat-tvam-asi.html">Tat Tvam Asi</a>
+    <a class="nav-pill" href="liberation.html">Liberation</a>
+    <a class="nav-pill" href="glossary.html">Glossary</a>
+  </nav>
+</section>
+
+<div class="container">
+
+  <h2 class="section-title">About This Text</h2>
+  <p class="section-sub">ग्रंथपरिचय</p>
+
+  <p class="intro-text">
+    <strong>Panchikaran</strong> (पंचीकरण) is a foundational Advaita Vedānta treatise composed by
+    <strong>Adi Shankaracharya</strong> (c. 788–820 CE). It describes the cosmic process by which
+    the five subtle elements (<em>Tanmatras</em>) combine into the five gross elements
+    (<em>Sthula Mahābhūtas</em>) of which the physical universe is made — and how understanding
+    this process reveals the identity of the individual Self with Brahman.
+  </p>
+
+  <p class="intro-marathi">
+    हा ग्रंथ पंचीकरण प्रक्रिया सांगतो — ज्या प्रक्रियेने पाच सूक्ष्म तत्त्वांचे (तन्मात्रे) पाच
+    स्थूल महाभूते बनतात — आणि या प्रक्रियेचे ज्ञान जीव-ब्रह्म ऐक्य कसे दाखवते ते स्पष्ट करतो.
+    श्रीमत्परमहंसपरिव्राजकाचार्य श्रीमद्शंकराचार्यांनी हा ग्रंथ रचला आहे.
+  </p>
+
+  <p class="intro-text">
+    This edition — <em>Sartha Satik Panchikaran, Marathi</em> — is a Marathi translation and
+    detailed commentary published by Tukaram Book Depot, Mumbai (3rd edition, August 2008),
+    in the tradition of <strong>Brahmanishtha Shriramguru</strong>. It makes the Sanskrit text
+    accessible through thorough Marathi explanation, illustrative analogies (Dṛṣṭānta),
+    and systematic tables (Koshtaka).
+  </p>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">9</div><div class="stat-label">Prakriyas<br>(Processes)</div></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-label">Koshtakas<br>(Tables)</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Mahābhūtas<br>(Elements)</div></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-label">Dṛṣṭāntas<br>(Analogies)</div></div>
+    <div class="stat"><div class="stat-num">25</div><div class="stat-label">Gross Body<br>Principles</div></div>
+    <div class="stat"><div class="stat-num">117</div><div class="stat-label">Pages in<br>the Book</div></div>
+  </div>
+
+  <hr class="divider">
+
+  <h2 class="section-title">Browse the Book</h2>
+  <p class="section-sub">ग्रंथाचे विभाग</p>
+
+  <div class="feature-grid">
+    <a class="feature-card" href="introduction.html">
+      <div class="fc-icon">📜</div>
+      <div class="fc-title-devanagari">प्रस्तावना व अधिकारिलक्षण</div>
+      <div class="fc-title-eng">Introduction & Qualifications</div>
+      <div class="fc-desc">Anubandha Chatushtaya, the four qualifications of the seeker — Viveka, Vairagya, Shat-Sampatti, and Mumukshatva.</div>
+    </a>
+    <a class="feature-card" href="panchikaran-process.html">
+      <div class="fc-icon">⚛️</div>
+      <div class="fc-title-devanagari">पंचीकरण प्रक्रिया</div>
+      <div class="fc-title-eng">The Panchikaran Process</div>
+      <div class="fc-desc">How the five subtle elements divide and combine to form all gross matter — the central teaching of this text.</div>
+    </a>
+    <a class="feature-card" href="three-bodies.html">
+      <div class="fc-icon">🧬</div>
+      <div class="fc-title-devanagari">त्रिविध देह</div>
+      <div class="fc-title-eng">The Three Bodies</div>
+      <div class="fc-desc">Sthula (gross), Sukshma (subtle), and Karana (causal) bodies — their 25 principles, 17 components, and the five sheaths.</div>
+    </a>
+    <a class="feature-card" href="analogies.html">
+      <div class="fc-icon">🪔</div>
+      <div class="fc-title-devanagari">दृष्टान्त</div>
+      <div class="fc-title-eng">Six Illustrative Analogies</div>
+      <div class="fc-desc">The lion cub, the blind man, cave of darkness, temple lamp — six teaching stories that illuminate the path to Self-knowledge.</div>
+    </a>
+    <a class="feature-card" href="prakriyas.html">
+      <div class="fc-icon">🔢</div>
+      <div class="fc-title-devanagari">नऊ प्रक्रिया</div>
+      <div class="fc-title-eng">Nine Sequential Processes</div>
+      <div class="fc-desc">From the gross elements through the subtle body to the final teaching of Tat Tvam Asi — the nine-fold systematic path.</div>
+    </a>
+    <a class="feature-card" href="koshtakas.html">
+      <div class="fc-icon">📊</div>
+      <div class="fc-title-devanagari">सहा कोष्टके</div>
+      <div class="fc-title-eng">Six Reference Tables</div>
+      <div class="fc-desc">All six systematic tables from the book — Gross Body principles, Waking State, Sense Organ Triputi, Action Organ Triputi.</div>
+    </a>
+    <a class="feature-card" href="tat-tvam-asi.html">
+      <div class="fc-icon">✨</div>
+      <div class="fc-title-devanagari">तत्त्वमसि</div>
+      <div class="fc-title-eng">Tat Tvam Asi</div>
+      <div class="fc-desc">The great Vedic declaration — 'That Thou Art' — and the three methods of implied meaning (Lakshana) that resolve its apparent contradiction.</div>
+    </a>
+    <a class="feature-card" href="liberation.html">
+      <div class="fc-icon">🌅</div>
+      <div class="fc-title-devanagari">मोक्ष</div>
+      <div class="fc-title-eng">Liberation</div>
+      <div class="fc-desc">Advaita Brahman as Sat-Chit-Ananda. The means of liberation: Shravana, Manana, Nididhyasana, and Nirvikalpa Samadhi.</div>
+    </a>
+    <a class="feature-card" href="glossary.html">
+      <div class="fc-icon">📖</div>
+      <div class="fc-title-devanagari">संस्कृत शब्दकोश</div>
+      <div class="fc-title-eng">Sanskrit Glossary</div>
+      <div class="fc-desc">28 key terms — from Atman to Vasana — with Sanskrit, Marathi, and English definitions.</div>
+    </a>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">"The Self is already liberated. What must be removed is only the ignorance that makes it appear otherwise."</p>
+    <p class="quote-source">— Shankaracharya, Panchikaran</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>सार्थ, सटीक पंचीकरण — मराठी | Tukaram Book Depot, Mumbai | 3rd Edition, August 2008</p>
+  <p style="margin-top:.4rem">Brahmanishtha Shriramguru Lineage — Shankaracharya → Sridakshinananda Sarasvati → Jayakrishnaji</p>
+</footer>
+
+</body>
+</html>
