@@ -1,0 +1,103 @@
+@page "/glossary"
+@inject BookDataService BookData
+
+<PageTitle>Sanskrit Glossary — Panchikaran</PageTitle>
+
+<div class="page-header">
+    <h1>Sanskrit Glossary / संस्कृत शब्दकोश</h1>
+    <p class="page-subtitle">Key terms from the Panchikaran text — with Marathi definitions</p>
+</div>
+
+<div class="search-bar">
+    <input type="text"
+           placeholder="Search Sanskrit, Marathi, English, or definition…"
+           @bind="SearchTerm"
+           @bind:event="oninput"
+           class="search-input" />
+    @if (!string.IsNullOrEmpty(SearchTerm))
+    {
+        <button class="search-clear" @onclick="ClearSearch">✕</button>
+    }
+</div>
+
+<div class="glossary-filter-bar">
+    <span class="filter-label">Category:</span>
+    <div class="filter-chips">
+        <button class="@ChipClass(SelectedCategory == null)"
+                @onclick="() => SelectedCategory = null">All</button>
+        @foreach (var cat in Categories)
+        {
+            <button class="@ChipClass(SelectedCategory == cat)"
+                    @onclick="() => SelectedCategory = cat">@cat</button>
+        }
+    </div>
+</div>
+
+<div class="glossary-count">
+    Showing @FilteredEntries.Count of @AllEntries.Count terms
+</div>
+
+<div class="glossary-list">
+    @foreach (var entry in FilteredEntries)
+    {
+        <div class="glossary-entry">
+            <div class="glos-header">
+                <div class="glos-terms">
+                    <span class="glos-sanskrit">@entry.Sanskrit</span>
+                    <span class="glos-sep">·</span>
+                    <span class="glos-marathi">@entry.Marathi</span>
+                    <span class="glos-sep">·</span>
+                    <span class="glos-english">@entry.English</span>
+                </div>
+                <span class="glos-cat">@entry.Category</span>
+            </div>
+            @if (!string.IsNullOrEmpty(entry.DefinitionMarathi))
+            {
+                <p class="glos-def-marathi">@entry.DefinitionMarathi</p>
+            }
+            <p class="glos-def">@entry.Definition</p>
+        </div>
+    }
+    @if (!FilteredEntries.Any())
+    {
+        <div class="empty-state">
+            <p>No terms found for "<strong>@SearchTerm</strong>"</p>
+            <button class="chip chip-active" @onclick="ClearSearch">Clear search</button>
+        </div>
+    }
+</div>
+
+@code {
+    private List<GlossaryEntry> AllEntries = new();
+    private List<string> Categories = new();
+    private string SearchTerm = "";
+    private string? SelectedCategory;
+
+    private List<GlossaryEntry> FilteredEntries
+    {
+        get
+        {
+            var q = AllEntries.AsEnumerable();
+            if (!string.IsNullOrWhiteSpace(SearchTerm))
+                q = q.Where(e =>
+                    e.Sanskrit.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase) ||
+                    e.English.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase) ||
+                    e.Marathi.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase) ||
+                    e.Definition.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase) ||
+                    e.DefinitionMarathi.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase));
+            if (SelectedCategory != null)
+                q = q.Where(e => e.Category == SelectedCategory);
+            return q.ToList();
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        AllEntries = BookData.GetGlossary();
+        Categories = AllEntries.Select(e => e.Category).Distinct().OrderBy(c => c).ToList();
+    }
+
+    private string ChipClass(bool active) => active ? "chip chip-active" : "chip";
+
+    private void ClearSearch() { SearchTerm = ""; SelectedCategory = null; }
+}

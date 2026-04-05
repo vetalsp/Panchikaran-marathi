@@ -1,0 +1,75 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = PanchikaranWeb
+build_property.RootNamespace = PanchikaranWeb
+build_property.ProjectDir = C:\Users\Sunil\OneDrive - CNH Industrial\Projects\Personal\PanchikaranWeb\PanchikaranWeb\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Sunil\OneDrive - CNH Industrial\Projects\Personal\PanchikaranWeb\PanchikaranWeb
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/Sunil/OneDrive - CNH Industrial/Projects/Personal/PanchikaranWeb/PanchikaranWeb/Components/App.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sunil/OneDrive - CNH Industrial/Projects/Personal/PanchikaranWeb/PanchikaranWeb/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sunil/OneDrive - CNH Industrial/Projects/Personal/PanchikaranWeb/PanchikaranWeb/Components/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sunil/OneDrive - CNH Industrial/Projects/Personal/PanchikaranWeb/PanchikaranWeb/Components/Pages/About.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBYm91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sunil/OneDrive - CNH Industrial/Projects/Personal/PanchikaranWeb/PanchikaranWeb/Components/Pages/Analogies.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBbmFsb2dpZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sunil/OneDrive - CNH Industrial/Projects/Personal/PanchikaranWeb/PanchikaranWeb/Components/Pages/ConceptExplorer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb25jZXB0RXhwbG9yZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sunil/OneDrive - CNH Industrial/Projects/Personal/PanchikaranWeb/PanchikaranWeb/Components/Pages/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sunil/OneDrive - CNH Industrial/Projects/Personal/PanchikaranWeb/PanchikaranWeb/Components/Pages/Glossary.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xHbG9zc2FyeS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sunil/OneDrive - CNH Industrial/Projects/Personal/PanchikaranWeb/PanchikaranWeb/Components/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sunil/OneDrive - CNH Industrial/Projects/Personal/PanchikaranWeb/PanchikaranWeb/Components/Pages/PanchikaranDiagram.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQYW5jaGlrYXJhbkRpYWdyYW0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sunil/OneDrive - CNH Industrial/Projects/Personal/PanchikaranWeb/PanchikaranWeb/Components/Pages/TableOfContents.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUYWJsZU9mQ29udGVudHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sunil/OneDrive - CNH Industrial/Projects/Personal/PanchikaranWeb/PanchikaranWeb/Components/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sunil/OneDrive - CNH Industrial/Projects/Personal/PanchikaranWeb/PanchikaranWeb/Components/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 

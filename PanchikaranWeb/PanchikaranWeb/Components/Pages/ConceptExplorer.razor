@@ -1,0 +1,126 @@
+@page "/concepts"
+@inject BookDataService BookData
+
+<PageTitle>Concept Explorer — Panchikaran</PageTitle>
+
+<div class="page-header">
+    <h1>Concept Explorer</h1>
+    <p class="page-subtitle">Navigate the philosophical landscape of Panchikaran</p>
+</div>
+
+<div class="filter-bar">
+    <span class="filter-label">Category:</span>
+    <div class="filter-chips">
+        <button class="@ChipClass(SelectedCategory == null)"
+                @onclick="() => SelectCategory(null)">All (@AllSections.Count)</button>
+        @foreach (var cat in Categories)
+        {
+            var count = AllSections.Count(s => s.Category == cat);
+            <button class="@ChipClass(SelectedCategory == cat)"
+                    @onclick="() => SelectCategory(cat)">@cat (@count)</button>
+        }
+    </div>
+</div>
+
+<div class="concepts-grid">
+    @foreach (var item in FilteredSections)
+    {
+        <div class="@ConceptCardClass(item.Id)"
+             @onclick="() => ToggleCard(item.Id)">
+            <div class="concept-cat-tag">@item.Category</div>
+            <h3 class="concept-devanagari">@item.TitleMarathi</h3>
+            <h4 class="concept-eng">@item.TitleEnglish</h4>
+
+            @if (!string.IsNullOrEmpty(item.Shloka))
+            {
+                <div class="concept-shloka-preview">
+                    <span class="shloka-text small">@item.Shloka</span>
+                </div>
+            }
+
+            <p class="concept-summary-preview">
+                @(item.Summary.Length > 110 ? item.Summary[..110] + "…" : item.Summary)
+            </p>
+
+            @if (SelectedId == item.Id)
+            {
+                <div class="concept-expanded">
+                    <hr class="divider" />
+                    @if (!string.IsNullOrEmpty(item.Shloka))
+                    {
+                        <div class="inline-shloka">
+                            <p class="shloka-text">@item.Shloka</p>
+                            <p class="shloka-trans">@item.ShlokaTranslation</p>
+                        </div>
+                    }
+                    <div class="bilingual-summary">
+                        @if (!string.IsNullOrEmpty(item.SummaryMarathi))
+                        {
+                            <div>
+                                <div class="lang-col-label">मराठी</div>
+                                <p class="summary-marathi">@item.SummaryMarathi</p>
+                            </div>
+                        }
+                        <div>
+                            <div class="lang-col-label">English</div>
+                            <p class="summary-english">@item.Summary</p>
+                        </div>
+                    </div>
+                    @if (item.KeyPoints.Any())
+                    {
+                        <div class="key-points-box">
+                            <strong>Key Points / मुख्य मुद्दे</strong>
+                            <div class="bilingual-points">
+                                @if (item.KeyPointsMarathi.Any())
+                                {
+                                    <div>
+                                        @foreach (var kp in item.KeyPointsMarathi)
+                                        {
+                                            <div class="point-marathi">@kp</div>
+                                        }
+                                    </div>
+                                }
+                                <div>
+                                    @foreach (var kp in item.KeyPoints)
+                                    {
+                                        <div class="point-english">@kp</div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <div class="concept-page-ref">Book reference: p. @item.PageNumber</div>
+                </div>
+            }
+
+            <div class="concept-toggle">
+                @(SelectedId == item.Id ? "Show less ▲" : "Read more ▼")
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private List<BookSection> AllSections = new();
+    private List<string> Categories = new();
+    private string? SelectedCategory;
+    private int? SelectedId;
+
+    private List<BookSection> FilteredSections =>
+        SelectedCategory == null
+            ? AllSections
+            : AllSections.Where(s => s.Category == SelectedCategory).ToList();
+
+    protected override void OnInitialized()
+    {
+        AllSections = BookData.GetAllSections();
+        Categories = BookData.GetCategories();
+    }
+
+    private string ChipClass(bool active) => active ? "chip chip-active" : "chip";
+    private string ConceptCardClass(int id) =>
+        SelectedId == id ? "concept-card concept-card-open" : "concept-card";
+
+    private void SelectCategory(string? cat) { SelectedCategory = cat; SelectedId = null; }
+    private void ToggleCard(int id) => SelectedId = SelectedId == id ? null : id;
+}

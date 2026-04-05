@@ -1,0 +1,200 @@
+@page "/panchikaran"
+@inject BookDataService BookData
+
+<PageTitle>The Panchikaran Process</PageTitle>
+
+<div class="page-header">
+    <h1>पंचीकरण प्रक्रिया</h1>
+    <p class="page-subtitle">The Fivefold Combination of Elements</p>
+</div>
+
+<div class="intro-block">
+    <p>
+        <strong>Panchikaran</strong> is the cosmic process by which the five <em>subtle</em> elements
+        (Tanmatras) become the five <em>gross</em> elements (Sthula Panchabhutas) that make up the physical universe.
+        Each element divides, shares itself, and receives parts of all others — creating an interwoven whole.
+    </p>
+</div>
+
+<!-- Step-by-step navigator -->
+<div class="step-nav">
+    @for (int i = 0; i < Steps.Length; i++)
+    {
+        var idx = i;
+        <button class="@StepBtnClass(idx)"
+                @onclick="() => GoToStep(idx)">
+            Step @(idx + 1)
+        </button>
+    }
+</div>
+
+<div class="step-card">
+    <h3 class="step-title">@Steps[CurrentStep].Title</h3>
+    <p class="step-desc">@Steps[CurrentStep].Description</p>
+
+    @if (CurrentStep == 0)
+    {
+        <!-- Five subtle elements -->
+        <div class="elements-grid">
+            @foreach (var el in Elements)
+            {
+                <div class="element-chip" style="border-color: @el.Color; background: @el.Color + '22'">
+                    <div class="el-symbol" style="color: @el.Color">@el.Symbol</div>
+                    <div class="el-name-devanagari">@el.NameSanskrit</div>
+                    <div class="el-name-eng">@el.NameEnglish.Split('(')[0]</div>
+                    <div class="el-tanmatra">@el.Tanmatra</div>
+                </div>
+            }
+        </div>
+    }
+    else if (CurrentStep == 1)
+    {
+        <!-- Division -->
+        <div class="division-grid">
+            @foreach (var el in Elements)
+            {
+                <div class="division-card" style="border-top: 4px solid @el.Color">
+                    <div class="div-name" style="color: @el.Color">@el.NameSanskrit</div>
+                    <div class="div-halves">
+                        <div class="half-block" style="background: @el.Color + '33'">
+                            <strong>½ Pure</strong>
+                            <span>Remains as own element</span>
+                        </div>
+                        <div class="half-block half-split">
+                            <strong>½ Divided</strong>
+                            <span>Split into 4 × ⅛ parts</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else if (CurrentStep == 2)
+    {
+        <!-- Mixing table -->
+        <div class="table-scroll">
+            <table class="mix-table">
+                <thead>
+                    <tr>
+                        <th>Gross Element</th>
+                        <th>½ Own Pure</th>
+                        @foreach (var el in Elements)
+                        {
+                            <th style="color: @el.Color">+ ⅛ @el.NameSanskrit</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var el in Elements)
+                    {
+                        <tr>
+                            <td style="color: @el.Color; font-weight: 600">@el.NameEnglish.Split('(')[0]</td>
+                            <td style="background: @el.Color + '22'">½ @el.NameSanskrit</td>
+                            @foreach (var other in Elements)
+                            {
+                                <td class="@CellClass(other.NameSanskrit == el.NameSanskrit)">
+                                    @(other.NameSanskrit == el.NameSanskrit ? "—" : "⅛")
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <p class="table-note">Each gross element = ½ of its own subtle element + ⅛ each from the other four.</p>
+    }
+    else if (CurrentStep == 3)
+    {
+        <!-- Gross elements result -->
+        <div class="gross-grid">
+            @foreach (var el in Elements)
+            {
+                <div class="gross-card" style="border-color: @el.Color">
+                    <div class="gross-header" style="background: @el.Color">
+                        <span class="gross-symbol">@el.Symbol</span>
+                        <span class="gross-name">@el.NameSanskrit</span>
+                    </div>
+                    <div class="gross-body">
+                        <div class="gross-row"><strong>Sense:</strong> @el.Sense</div>
+                        <div class="gross-row"><strong>Sense Organ:</strong> @el.SenseOrgan</div>
+                        <div class="gross-row"><strong>Action Organ:</strong> @el.ActionOrgan</div>
+                        <div class="gross-row"><strong>Tanmatra:</strong> @el.Tanmatra</div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else if (CurrentStep == 4)
+    {
+        <!-- The Nine Prakriyas -->
+        <div class="prakriya-list">
+            @foreach (var p in Prakriyas)
+            {
+                <div class="@PrakriyaItemClass(p.Number)"
+                     @onclick="() => TogglePrakriya(p.Number)">
+                    <div class="prakriya-header">
+                        <div class="prakriya-num">@p.Number</div>
+                        <div>
+                            <div class="prakriya-marathi">@p.TitleMarathi</div>
+                            <div class="prakriya-eng">@p.TitleEnglish</div>
+                        </div>
+                        <div class="prakriya-page">p.@p.PageNumber</div>
+                    </div>
+                    @if (SelectedPrakriya == p.Number)
+                    {
+                        <div class="prakriya-detail">
+                            <p>@p.Description</p>
+                            <ul>
+                                @foreach (var c in p.Components)
+                                { <li>@c</li> }
+                            </ul>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<div class="step-footer">
+    <button class="btn-prev" @onclick="PrevStep" disabled="@(CurrentStep == 0)">← Previous</button>
+    <span class="step-indicator">@(CurrentStep + 1) / @Steps.Length</span>
+    <button class="btn-next" @onclick="NextStep" disabled="@(CurrentStep == Steps.Length - 1)">Next →</button>
+</div>
+
+@code {
+    record Step(string Title, string Description);
+
+    private Step[] Steps = {
+        new("The Five Subtle Elements (Tanmatras)",
+            "Before Panchikaran, the five elements exist in their pure, subtle, unmixed form — each carrying its own unique quality (Tanmatra). These are the seed-forms of physical reality."),
+        new("Division: Each Element Splits in Two",
+            "In the first stage of Panchikaran, each subtle element divides into two equal halves. One half remains as its own pure element. The other half is further divided into four equal parts (⅛ each) to be shared."),
+        new("Combination: The Mixing Table",
+            "Each gross element is formed from its own pure half (½) plus one-eighth (⅛) received from each of the other four elements. This interpenetration is why no gross element is ever purely one thing."),
+        new("Result: The Five Gross Elements",
+            "The five gross Mahābhūtas emerge — each a composite of all five subtle elements, with their corresponding sense perceptions, organs of knowledge, and organs of action."),
+        new("The Nine Prakriyas",
+            "Panchikaran then traces nine sequential processes (Prakriya) from the gross elements through to the final teaching of Tat Tvam Asi and liberation. Click any process to expand its details."),
+    };
+
+    private List<Element> Elements = new();
+    private List<Prakriya> Prakriyas = new();
+    private int CurrentStep = 0;
+    private int? SelectedPrakriya;
+
+    protected override void OnInitialized()
+    {
+        Elements = BookData.GetElements();
+        Prakriyas = BookData.GetPrakriyas();
+    }
+
+    private string StepBtnClass(int idx) => CurrentStep == idx ? "step-btn step-active" : "step-btn";
+    private string CellClass(bool isOwn) => isOwn ? "own-cell" : "";
+    private string PrakriyaItemClass(int n) => SelectedPrakriya == n ? "prakriya-item prakriya-open" : "prakriya-item";
+
+    private void GoToStep(int idx) => CurrentStep = idx;
+    private void PrevStep() { if (CurrentStep > 0) CurrentStep--; }
+    private void NextStep() { if (CurrentStep < Steps.Length - 1) CurrentStep++; }
+    private void TogglePrakriya(int n) => SelectedPrakriya = SelectedPrakriya == n ? null : n;
+}

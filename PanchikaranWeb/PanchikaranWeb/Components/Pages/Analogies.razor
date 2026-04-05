@@ -1,0 +1,88 @@
+@page "/analogies"
+@inject BookDataService BookData
+
+<PageTitle>Dṛṣṭāntas — Panchikaran</PageTitle>
+
+<div class="page-header">
+    <h1>दृष्टान्त</h1>
+    <p class="page-subtitle">Illustrative Analogies — The Teaching Stories of Panchikaran</p>
+</div>
+
+<div class="intro-block">
+    <p>
+        Shankaracharya employs vivid analogies (<em>Dṛṣṭānta</em>) to convey truths beyond ordinary logic.
+        Each analogy illuminates one facet of the path from ignorance to liberation.
+    </p>
+    <p style="font-family:'Noto Sans Devanagari',serif; font-size:.88rem; margin-top:.5rem; color: var(--brown-mid);">
+        शंकराचार्य प्रत्येक सिद्धान्त समजावण्यासाठी दृष्टान्त देतात. प्रत्येक दृष्टान्त एकाच सत्याची एक बाजू प्रकाशित करतो.
+    </p>
+</div>
+
+<div class="analogies-list">
+    @foreach (var d in Drstantas)
+    {
+        <div class="@AnalogyCardClass(d.Id)">
+            <div class="analogy-header" @onclick="() => Toggle(d.Id)">
+                <div class="analogy-num">@d.Id</div>
+                <div class="analogy-titles">
+                    <span class="analogy-devanagari">@d.TitleMarathi</span>
+                    <span class="analogy-eng">@d.TitleEnglish</span>
+                </div>
+                <div class="analogy-page">p. @d.PageNumber</div>
+                <div class="analogy-chevron">@(OpenId == d.Id ? "▲" : "▼")</div>
+            </div>
+
+            @if (OpenId == d.Id)
+            {
+                <div class="analogy-body">
+                    <div class="analogy-section">
+                        <div class="analogy-section-label">🏺 कथा / The Story</div>
+                        <div class="analogy-bilingual">
+                            <div class="analogy-lang-col marathi">
+                                <div class="lang-col-label">मराठी</div>
+                                <p>@d.StoryMarathi</p>
+                            </div>
+                            <div class="analogy-lang-col">
+                                <div class="lang-col-label">English</div>
+                                <p>@d.Story</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="analogy-section">
+                        <div class="analogy-section-label">💡 बोध / The Teaching</div>
+                        <div class="analogy-bilingual">
+                            <div class="analogy-lang-col marathi">
+                                <div class="lang-col-label">मराठी</div>
+                                <p>@d.TeachingMarathi</p>
+                            </div>
+                            <div class="analogy-lang-col">
+                                <div class="lang-col-label">English</div>
+                                <p>@d.Teaching</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="analogy-section">
+                        <div class="analogy-section-label">📜 वैदिक समांतर / Vedic Parallel</div>
+                        <p class="vedic-parallel">@d.VedicParallel</p>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    private List<Drstanta> Drstantas = new();
+    private int? OpenId = 1;
+
+    protected override void OnInitialized()
+    {
+        Drstantas = BookData.GetDrstantas();
+    }
+
+    private string AnalogyCardClass(int id) =>
+        OpenId == id ? "analogy-card analogy-open" : "analogy-card";
+
+    private void Toggle(int id) =>
+        OpenId = OpenId == id ? null : id;
+}

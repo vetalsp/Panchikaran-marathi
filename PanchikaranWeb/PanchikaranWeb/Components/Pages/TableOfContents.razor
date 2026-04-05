@@ -1,0 +1,113 @@
+@page "/contents"
+@inject BookDataService BookData
+
+<PageTitle>Table of Contents — Panchikaran</PageTitle>
+
+<div class="page-header">
+    <h1>विषयानुक्रमणिका</h1>
+    <p class="page-subtitle">Table of Contents</p>
+</div>
+
+<div class="filter-bar">
+    <span class="filter-label">Filter by category:</span>
+    <div class="filter-chips">
+        <button class="@ChipClass(SelectedCategory == null)"
+                @onclick="() => SelectCategory(null)">All</button>
+        @foreach (var cat in Categories)
+        {
+            <button class="@ChipClass(SelectedCategory == cat)"
+                    @onclick="() => SelectCategory(cat)">@cat</button>
+        }
+    </div>
+</div>
+
+<div class="toc-list">
+    @foreach (var item in FilteredSections)
+    {
+        <div class="@TocEntryClass(item.Id)"
+             @onclick="() => ToggleExpand(item.Id)">
+            <div class="toc-main">
+                <div class="toc-titles">
+                    <span class="toc-devanagari">@item.TitleMarathi</span>
+                    <span class="toc-english">@item.TitleEnglish</span>
+                </div>
+                <div class="toc-meta">
+                    <span class="toc-category">@item.Category</span>
+                    <span class="toc-page">p. @item.PageNumber</span>
+                    <span class="toc-chevron">@(ExpandedId == item.Id ? "▲" : "▼")</span>
+                </div>
+            </div>
+
+            @if (ExpandedId == item.Id)
+            {
+                <div class="toc-detail">
+                    @if (!string.IsNullOrEmpty(item.Shloka))
+                    {
+                        <div class="inline-shloka">
+                            <p class="shloka-text small">@item.Shloka</p>
+                            <p class="shloka-trans small">@item.ShlokaTranslation</p>
+                        </div>
+                    }
+                    <div class="bilingual-summary">
+                        @if (!string.IsNullOrEmpty(item.SummaryMarathi))
+                        {
+                            <div>
+                                <div class="lang-col-label" style="color:var(--text-light)">मराठी</div>
+                                <p class="summary-marathi">@item.SummaryMarathi</p>
+                            </div>
+                        }
+                        <div>
+                            <div class="lang-col-label" style="color:var(--text-light)">English</div>
+                            <p class="toc-summary">@item.Summary</p>
+                        </div>
+                    </div>
+                    @if (item.KeyPoints.Any())
+                    {
+                        <div class="bilingual-points" style="margin-top:.5rem">
+                            @if (item.KeyPointsMarathi.Any())
+                            {
+                                <div>
+                                    @foreach (var pt in item.KeyPointsMarathi)
+                                    {
+                                        <div class="point-marathi">@pt</div>
+                                    }
+                                </div>
+                            }
+                            <div>
+                                @foreach (var pt in item.KeyPoints)
+                                {
+                                    <div class="point-english">@pt</div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    private List<BookSection> AllSections = new();
+    private List<string> Categories = new();
+    private string? SelectedCategory;
+    private int? ExpandedId;
+
+    private List<BookSection> FilteredSections =>
+        SelectedCategory == null
+            ? AllSections
+            : AllSections.Where(s => s.Category == SelectedCategory).ToList();
+
+    protected override void OnInitialized()
+    {
+        AllSections = BookData.GetAllSections();
+        Categories = BookData.GetCategories();
+    }
+
+    private string ChipClass(bool active) => active ? "chip chip-active" : "chip";
+    private string TocEntryClass(int id) =>
+        ExpandedId == id ? "toc-entry toc-expanded" : "toc-entry";
+
+    private void SelectCategory(string? cat) { SelectedCategory = cat; ExpandedId = null; }
+    private void ToggleExpand(int id) { ExpandedId = ExpandedId == id ? null : id; }
+}

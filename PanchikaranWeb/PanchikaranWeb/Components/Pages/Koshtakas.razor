@@ -1,0 +1,94 @@
+@page "/koshtakas"
+@inject BookDataService BookData
+
+<PageTitle>कोष्टके — Panchikaran</PageTitle>
+
+<div class="page-header">
+    <h1>कोष्टके</h1>
+    <p class="page-subtitle">Tables from the Book — Koshtaka (कोष्टक)</p>
+</div>
+
+<div class="intro-block">
+    <p>
+        The Panchikaran text contains six systematic tables (<em>Koshtaka</em>) that map the principles of
+        the three bodies, the fivefold combination of elements, and the triputi of each sense and action organ.
+        These are the core reference charts of the book.
+    </p>
+    <p style="margin-top:.5rem; font-family:'Noto Sans Devanagari', serif; font-size:.9rem;">
+        पंचीकरण ग्रंथात सहा कोष्टके आहेत जी स्थूल देह, सूक्ष्म देह, जागृत अवस्था, ज्ञानेंद्रिय-त्रिपुटी आणि अंत:करण यांची तत्त्वे व्यवस्थितपणे मांडतात.
+    </p>
+</div>
+
+@foreach (var k in koshtakasList)
+{
+    <div class="koshtaka-block">
+        <div class="koshtaka-header" @onclick="() => ToggleK(k.Number)">
+            <div class="koshtaka-num">@k.Number</div>
+            <div class="koshtaka-titles">
+                <div class="koshtaka-marathi">@k.TitleMarathi</div>
+                <div class="koshtaka-english">@k.TitleEnglish</div>
+            </div>
+            <div class="koshtaka-page">p. @k.PageNumber</div>
+            <div class="koshtaka-chevron">@(OpenK == k.Number ? "▲" : "▼")</div>
+        </div>
+
+        @if (OpenK == k.Number)
+        {
+            <div class="koshtaka-body">
+                <div class="koshtaka-desc-pair">
+                    <p class="koshtaka-desc-marathi">@k.DescriptionMarathi</p>
+                    <p class="koshtaka-desc-english">@k.Description</p>
+                </div>
+
+                <div class="table-scroll">
+                    <table class="koshtaka-table">
+                        <thead>
+                            <tr>
+                                @for (int i = 0; i < k.Headers.Count; i++)
+                                {
+                                    var hi = i;
+                                    <th>
+                                        <div class="th-marathi">@k.HeadersMarathi[hi]</div>
+                                        <div class="th-english">@k.Headers[hi]</div>
+                                    </th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var row in k.Rows)
+                            {
+                                <tr>
+                                    @foreach (var cell in row)
+                                    {
+                                        <td>@cell</td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                @if (!string.IsNullOrEmpty(k.NoteMarathi))
+                {
+                    <div class="koshtaka-note">
+                        <div class="note-label">📝 टीप / Note</div>
+                        <p class="note-marathi">@k.NoteMarathi</p>
+                        <p class="note-english">@k.Note</p>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private List<Koshtaka> koshtakasList = new();
+    private int? OpenK = 1;
+
+    protected override void OnInitialized()
+    {
+        koshtakasList = BookData.GetKoshtakas();
+    }
+
+    private void ToggleK(int n) => OpenK = OpenK == n ? null : n;
+}

@@ -1,0 +1,36 @@
+@page "/Error"
+@using Microsoft.AspNetCore.Diagnostics
+@using System.Diagnostics
+
+<PageTitle>Error — Panchikaran</PageTitle>
+
+<div class="page-header">
+    <h1>An Error Occurred</h1>
+    <p class="page-subtitle">Something unexpected happened.</p>
+</div>
+
+<div class="about-block" style="background: #fff5f5; border-color: #ffcccc;">
+    <p>
+        We apologise for the inconvenience. Please try navigating back to the
+        <a href="/">home page</a> or refreshing the page.
+    </p>
+    @if (ShowRequestId)
+    {
+        <p style="font-family: monospace; font-size: .8rem; color: #888;">
+            Request ID: <strong>@RequestId</strong>
+        </p>
+    }
+</div>
+
+@code {
+    [CascadingParameter]
+    private HttpContext? HttpContext { get; set; }
+
+    private string? RequestId;
+    private bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+
+    protected override void OnInitialized()
+    {
+        RequestId = Activity.Current?.Id ?? HttpContext?.TraceIdentifier;
+    }
+}

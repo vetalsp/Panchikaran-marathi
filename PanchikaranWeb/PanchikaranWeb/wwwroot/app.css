@@ -1,0 +1,1347 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Panchikaran Web — Design System
+   Color Palette: Saffron / Gold / Deep Cream / Dark Brown
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+    --saffron:      #E8650A;
+    --saffron-dark: #C4520A;
+    --saffron-light:#FDEEDE;
+    --gold:         #C9972B;
+    --gold-light:   #F7E9C6;
+    --brown-deep:   #2C1A06;
+    --brown-mid:    #5C3A12;
+    --brown-light:  #8B5E2A;
+    --cream:        #FDF8EF;
+    --cream-dark:   #F0E8D5;
+    --text-dark:    #1A0F00;
+    --text-mid:     #4A3010;
+    --text-light:   #8B6D45;
+    --white:        #FFFFFF;
+    --sidebar-w:    260px;
+    --radius:       12px;
+    --radius-sm:    6px;
+    --shadow:       0 2px 12px rgba(44,26,6,.10);
+    --shadow-md:    0 4px 24px rgba(44,26,6,.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+    height: 100%;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ─── LAYOUT ─────────────────────────────────────────────────────── */
+.page {
+    display: flex;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--sidebar-w);
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+    padding: 2rem 2.5rem 4rem;
+    max-width: 960px;
+}
+
+/* ─── SIDEBAR ────────────────────────────────────────────────────── */
+.sidebar {
+    width: var(--sidebar-w);
+    background: var(--brown-deep);
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    padding: 1.5rem 1.25rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.brand-om {
+    font-size: 2.2rem;
+    color: var(--gold);
+    line-height: 1;
+    font-family: 'Noto Sans Devanagari', serif;
+}
+
+.brand-title {
+    display: block;
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+}
+
+.brand-sub {
+    display: block;
+    font-size: .72rem;
+    color: var(--gold-light);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    flex: 1;
+    padding: 1rem .75rem;
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+}
+
+.nav-section-label {
+    font-size: .65rem;
+    letter-spacing: .12em;
+    color: var(--brown-light);
+    padding: .75rem .5rem .25rem;
+    font-weight: 600;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    padding: .6rem .85rem;
+    border-radius: var(--radius-sm);
+    color: rgba(255,255,255,.75);
+    text-decoration: none;
+    font-size: .9rem;
+    transition: background .15s, color .15s;
+}
+
+.nav-item:hover {
+    background: rgba(255,255,255,.08);
+    color: var(--white);
+    text-decoration: none;
+}
+
+.nav-item.active {
+    background: var(--saffron);
+    color: var(--white);
+}
+
+.nav-icon { font-size: 1rem; }
+
+.nav-footer {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid rgba(255,255,255,.08);
+    font-size: .72rem;
+    color: var(--brown-light);
+    line-height: 1.5;
+}
+
+/* ─── TOP BAR ────────────────────────────────────────────────────── */
+.top-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--cream-dark);
+    padding: .6rem 2.5rem;
+}
+
+.book-subtitle {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: .8rem;
+    color: var(--text-light);
+    letter-spacing: .04em;
+}
+
+/* ─── PAGE HEADER ────────────────────────────────────────────────── */
+.page-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 2px solid var(--cream-dark);
+}
+
+.page-header h1 {
+    font-family: 'Noto Sans Devanagari', 'Crimson Text', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--brown-deep);
+    line-height: 1.2;
+}
+
+.page-subtitle {
+    font-size: .95rem;
+    color: var(--text-light);
+    margin-top: .3rem;
+    font-style: italic;
+}
+
+/* ─── HOME PAGE ──────────────────────────────────────────────────── */
+.home-hero {
+    background: linear-gradient(135deg, var(--brown-deep) 0%, var(--brown-mid) 100%);
+    border-radius: var(--radius);
+    padding: 3rem 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, rgba(201,151,43,.15) 0%, transparent 70%);
+}
+
+.hero-om {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: .6;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.hero-content { flex: 1; position: relative; }
+
+.hero-title-devanagari {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+}
+
+.hero-title-english {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    margin-bottom: .25rem;
+}
+
+.hero-subtitle {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: .9rem;
+    color: rgba(255,255,255,.5);
+    margin-bottom: 1rem;
+}
+
+.hero-desc {
+    font-size: .95rem;
+    color: rgba(255,255,255,.75);
+    max-width: 480px;
+    margin-bottom: 1.25rem;
+}
+
+.hero-shloka {
+    display: inline-block;
+    border-left: 3px solid var(--gold);
+    padding-left: .85rem;
+}
+
+.shloka-text {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.shloka-text.small { font-size: .95rem; }
+.shloka-text.large { font-size: 2.5rem; }
+
+.shloka-trans {
+    font-size: .85rem;
+    color: rgba(255,255,255,.6);
+    font-style: italic;
+}
+
+.shloka-trans.small { color: var(--text-light); }
+
+/* ─── FEATURE CARDS ──────────────────────────────────────────────── */
+.home-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.feature-card {
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    transition: transform .15s, box-shadow .15s;
+    border: 1px solid transparent;
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+    color: var(--text-dark);
+}
+
+.card-saffron { background: var(--saffron-light); border-color: rgba(232,101,10,.25); }
+.card-gold    { background: var(--gold-light);    border-color: rgba(201,151,43,.25); }
+.card-brown   { background: #F5EDE0;              border-color: rgba(139,94,42,.2); }
+.card-green   { background: #EDF5ED;              border-color: rgba(40,120,60,.2); }
+
+.card-icon { font-size: 1.75rem; }
+
+.feature-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--brown-deep);
+}
+
+.feature-card p {
+    font-size: .85rem;
+    color: var(--text-mid);
+    flex: 1;
+}
+
+.card-link {
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--saffron);
+}
+
+/* ─── HOME QUOTE ─────────────────────────────────────────────────── */
+.home-quote-section {
+    background: var(--brown-deep);
+    border-radius: var(--radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.home-quote { text-align: center; }
+
+.quote-text {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-bottom: .5rem;
+}
+
+.quote-attr {
+    font-size: .8rem;
+    color: rgba(255,255,255,.4);
+}
+
+/* ─── STATS ──────────────────────────────────────────────────────── */
+.home-summary {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    border: 1px solid var(--cream-dark);
+}
+
+.home-summary h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--brown-deep);
+    margin-bottom: .75rem;
+}
+
+.home-summary p { font-size: .92rem; color: var(--text-mid); margin-bottom: .75rem; }
+
+.stats-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--cream-dark);
+}
+
+.stat { text-align: center; flex: 1; min-width: 80px; }
+
+.stat-num {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--saffron);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: .72rem;
+    color: var(--text-light);
+    margin-top: .25rem;
+    line-height: 1.4;
+}
+
+/* ─── FILTER BAR ─────────────────────────────────────────────────── */
+.filter-bar, .glossary-filter-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5rem 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.filter-label { font-size: .82rem; color: var(--text-light); font-weight: 500; }
+
+.filter-chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+
+.chip {
+    padding: .3rem .85rem;
+    border-radius: 999px;
+    font-size: .8rem;
+    border: 1.5px solid var(--cream-dark);
+    background: var(--white);
+    color: var(--text-mid);
+    cursor: pointer;
+    transition: all .15s;
+    font-weight: 500;
+}
+
+.chip:hover { border-color: var(--saffron); color: var(--saffron); }
+
+.chip-active {
+    background: var(--saffron);
+    border-color: var(--saffron);
+    color: var(--white);
+}
+
+/* ─── TABLE OF CONTENTS ──────────────────────────────────────────── */
+.toc-list { display: flex; flex-direction: column; gap: .6rem; }
+
+.toc-entry {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: border-color .15s, box-shadow .15s;
+    overflow: hidden;
+}
+
+.toc-entry:hover { border-color: var(--saffron); box-shadow: var(--shadow); }
+
+.toc-expanded { border-color: var(--saffron); box-shadow: var(--shadow); }
+
+.toc-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .85rem 1.1rem;
+    gap: 1rem;
+}
+
+.toc-titles { display: flex; flex-direction: column; gap: .1rem; flex: 1; }
+
+.toc-devanagari {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--brown-deep);
+}
+
+.toc-english { font-size: .85rem; color: var(--text-mid); }
+
+.toc-meta {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    flex-shrink: 0;
+}
+
+.toc-category {
+    font-size: .72rem;
+    background: var(--gold-light);
+    color: var(--brown-mid);
+    padding: .15rem .55rem;
+    border-radius: 999px;
+    font-weight: 500;
+}
+
+.toc-page { font-size: .78rem; color: var(--text-light); }
+.toc-chevron { font-size: .7rem; color: var(--text-light); }
+
+.toc-detail {
+    border-top: 1px solid var(--cream-dark);
+    padding: 1rem 1.25rem;
+    background: var(--cream);
+}
+
+.toc-summary { font-size: .88rem; color: var(--text-mid); margin-bottom: .75rem; }
+
+.key-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.key-points li {
+    font-size: .84rem;
+    color: var(--text-mid);
+    padding-left: 1.2rem;
+    position: relative;
+}
+
+.key-points li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--saffron);
+    font-size: .55rem;
+    top: .35em;
+}
+
+/* ─── INLINE SHLOKA ──────────────────────────────────────────────── */
+.inline-shloka {
+    background: var(--brown-deep);
+    border-radius: var(--radius-sm);
+    padding: .85rem 1rem;
+    margin-bottom: .85rem;
+}
+
+.inline-shloka .shloka-text { color: var(--gold); }
+.inline-shloka .shloka-trans { color: rgba(255,255,255,.55); font-style: italic; font-size: .8rem; }
+
+/* ─── CONCEPTS GRID ──────────────────────────────────────────────── */
+.concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.1rem;
+}
+
+.concept-card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    cursor: pointer;
+    transition: border-color .15s, box-shadow .15s;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+.concept-card:hover, .concept-card-open {
+    border-color: var(--saffron);
+    box-shadow: var(--shadow-md);
+}
+
+.concept-cat-tag {
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .07em;
+    color: var(--saffron);
+    text-transform: uppercase;
+}
+
+.concept-devanagari {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--brown-deep);
+}
+
+.concept-eng { font-size: .88rem; color: var(--text-mid); font-weight: 500; }
+
+.concept-shloka-preview .shloka-text {
+    font-size: .9rem;
+    color: var(--gold);
+}
+
+.concept-summary-preview {
+    font-size: .83rem;
+    color: var(--text-light);
+    flex: 1;
+}
+
+.concept-toggle {
+    font-size: .78rem;
+    color: var(--saffron);
+    font-weight: 600;
+    margin-top: .25rem;
+}
+
+.concept-expanded { margin-top: .75rem; }
+
+.divider {
+    border: none;
+    border-top: 1px solid var(--cream-dark);
+    margin: .75rem 0;
+}
+
+.concept-full-summary { font-size: .88rem; color: var(--text-mid); margin-bottom: .75rem; }
+
+.key-points-box {
+    background: var(--cream);
+    border-radius: var(--radius-sm);
+    padding: .85rem 1rem;
+    margin-bottom: .5rem;
+}
+
+.key-points-box strong {
+    display: block;
+    font-size: .78rem;
+    letter-spacing: .06em;
+    color: var(--text-light);
+    text-transform: uppercase;
+    margin-bottom: .4rem;
+}
+
+.concept-page-ref {
+    font-size: .75rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* ─── GLOSSARY ───────────────────────────────────────────────────── */
+.search-bar {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: .7rem 1rem;
+    border: 1.5px solid var(--cream-dark);
+    border-radius: var(--radius-sm);
+    font-size: .92rem;
+    background: var(--white);
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color .15s;
+}
+
+.search-input:focus { border-color: var(--saffron); }
+
+.search-clear {
+    position: absolute;
+    right: .75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    font-size: .9rem;
+}
+
+.glossary-count {
+    font-size: .78rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.glossary-list { display: flex; flex-direction: column; gap: .6rem; }
+
+.glossary-entry {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius-sm);
+    padding: .9rem 1.1rem;
+}
+
+.glos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: .4rem;
+    gap: 1rem;
+}
+
+.glos-terms { display: flex; align-items: center; flex-wrap: wrap; gap: .35rem; }
+
+.glos-sanskrit {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--brown-deep);
+}
+
+.glos-marathi {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: .9rem;
+    color: var(--brown-mid);
+}
+
+.glos-english { font-size: .9rem; font-weight: 600; color: var(--saffron); }
+.glos-sep { color: var(--cream-dark); }
+.glos-cat { font-size: .7rem; color: var(--text-light); white-space: nowrap; }
+.glos-def { font-size: .85rem; color: var(--text-mid); }
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+}
+
+/* ─── PANCHIKARAN PAGE ───────────────────────────────────────────── */
+.intro-block {
+    background: var(--gold-light);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: .92rem;
+    color: var(--brown-mid);
+}
+
+.step-nav {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+}
+
+.step-btn {
+    padding: .4rem 1rem;
+    border-radius: 999px;
+    border: 1.5px solid var(--cream-dark);
+    background: var(--white);
+    color: var(--text-mid);
+    font-size: .82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+}
+
+.step-btn:hover { border-color: var(--saffron); color: var(--saffron); }
+.step-active { background: var(--saffron); border-color: var(--saffron); color: var(--white); }
+
+.step-card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    min-height: 340px;
+    margin-bottom: 1.25rem;
+}
+
+.step-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--brown-deep);
+    margin-bottom: .5rem;
+}
+
+.step-desc { font-size: .88rem; color: var(--text-mid); margin-bottom: 1.5rem; }
+
+/* Elements grid */
+.elements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.element-chip {
+    border: 2px solid;
+    border-radius: var(--radius);
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.el-symbol { font-size: 2rem; }
+.el-name-devanagari { font-family: 'Noto Sans Devanagari', serif; font-weight: 700; font-size: .95rem; }
+.el-name-eng { font-size: .75rem; color: var(--text-mid); }
+.el-tanmatra { font-size: .72rem; color: var(--text-light); font-style: italic; }
+
+/* Division grid */
+.division-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.division-card {
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+}
+
+.div-name { font-family: 'Noto Sans Devanagari', serif; font-weight: 700; margin-bottom: .5rem; }
+
+.div-halves { display: flex; gap: .5rem; }
+
+.half-block {
+    flex: 1;
+    border-radius: var(--radius-sm);
+    padding: .5rem;
+    font-size: .75rem;
+    text-align: center;
+}
+
+.half-block strong { display: block; font-size: .8rem; }
+.half-split { background: var(--cream-dark); }
+
+/* Mix table */
+.table-scroll { overflow-x: auto; }
+
+.mix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .8rem;
+}
+
+.mix-table th, .mix-table td {
+    border: 1px solid var(--cream-dark);
+    padding: .5rem .75rem;
+    text-align: center;
+}
+
+.mix-table thead { background: var(--cream); }
+.mix-table th { font-weight: 600; }
+.own-cell { background: var(--saffron-light); font-size: .7rem; }
+.table-note { font-size: .78rem; color: var(--text-light); margin-top: .75rem; font-style: italic; }
+
+/* Gross elements grid */
+.gross-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+}
+
+.gross-card { border: 1.5px solid; border-radius: var(--radius-sm); overflow: hidden; }
+
+.gross-header {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .6rem .85rem;
+    color: var(--white);
+}
+
+.gross-symbol { font-size: 1.25rem; }
+.gross-name { font-family: 'Noto Sans Devanagari', serif; font-weight: 700; font-size: .9rem; }
+.gross-body { padding: .75rem .85rem; }
+.gross-row { font-size: .78rem; color: var(--text-mid); margin-bottom: .2rem; }
+.gross-row strong { color: var(--brown-deep); }
+
+/* Prakriya list */
+.prakriya-list { display: flex; flex-direction: column; gap: .5rem; }
+
+.prakriya-item {
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color .15s;
+}
+
+.prakriya-item:hover, .prakriya-open { border-color: var(--saffron); }
+
+.prakriya-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: .75rem 1rem;
+}
+
+.prakriya-num {
+    width: 32px; height: 32px;
+    background: var(--saffron);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: .85rem;
+    flex-shrink: 0;
+}
+
+.prakriya-marathi { font-family: 'Noto Sans Devanagari', serif; font-weight: 600; font-size: .9rem; }
+.prakriya-eng { font-size: .8rem; color: var(--text-mid); }
+.prakriya-page { font-size: .75rem; color: var(--text-light); margin-left: auto; }
+
+.prakriya-detail {
+    border-top: 1px solid var(--cream-dark);
+    padding: .85rem 1rem;
+    background: var(--cream);
+    font-size: .85rem;
+    color: var(--text-mid);
+}
+
+.prakriya-detail ul { padding-left: 1.2rem; margin-top: .5rem; }
+.prakriya-detail li { margin-bottom: .2rem; }
+
+/* Step footer */
+.step-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.btn-prev, .btn-next {
+    padding: .5rem 1.25rem;
+    border-radius: 999px;
+    border: 1.5px solid var(--saffron);
+    background: transparent;
+    color: var(--saffron);
+    font-size: .88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .15s;
+}
+
+.btn-prev:hover:not(:disabled), .btn-next:hover:not(:disabled) {
+    background: var(--saffron);
+    color: var(--white);
+}
+
+.btn-prev:disabled, .btn-next:disabled { opacity: .35; cursor: not-allowed; }
+.step-indicator { font-size: .82rem; color: var(--text-light); }
+
+/* ─── ANALOGIES ──────────────────────────────────────────────────── */
+.analogies-list { display: flex; flex-direction: column; gap: .7rem; }
+
+.analogy-card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color .15s;
+}
+
+.analogy-card.analogy-open, .analogy-card:hover { border-color: var(--saffron); }
+
+.analogy-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+}
+
+.analogy-num {
+    width: 36px; height: 36px;
+    background: var(--saffron-light);
+    color: var(--saffron);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: .9rem;
+    flex-shrink: 0;
+}
+
+.analogy-open .analogy-num { background: var(--saffron); color: var(--white); }
+
+.analogy-titles { flex: 1; }
+.analogy-devanagari { font-family: 'Noto Sans Devanagari', serif; font-weight: 700; font-size: 1rem; display: block; }
+.analogy-eng { font-size: .85rem; color: var(--text-mid); }
+.analogy-chevron { color: var(--text-light); font-size: .75rem; }
+
+.analogy-body {
+    border-top: 1px solid var(--cream-dark);
+    padding: 1.25rem 1.5rem;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.analogy-section-label {
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .07em;
+    color: var(--text-light);
+    text-transform: uppercase;
+    margin-bottom: .3rem;
+}
+
+.analogy-section p { font-size: .88rem; color: var(--text-mid); }
+
+.vedic-parallel {
+    font-family: 'Crimson Text', serif;
+    font-style: italic;
+    font-size: .95rem !important;
+    color: var(--brown-mid) !important;
+}
+
+.analogy-page-ref { font-size: .75rem; color: var(--text-light); font-style: italic; }
+
+/* ─── ABOUT PAGE ─────────────────────────────────────────────────── */
+.about-content { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.about-block {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+}
+
+.about-block h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--brown-deep);
+    margin-bottom: .85rem;
+}
+
+.about-block p { font-size: .9rem; color: var(--text-mid); margin-bottom: .65rem; }
+.about-block p:last-child { margin-bottom: 0; }
+
+.about-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-top: .5rem;
+}
+
+.about-list li { font-size: .88rem; color: var(--text-mid); margin-bottom: .35rem; }
+
+.mahavakya-display {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--brown-deep);
+    border-radius: var(--radius-sm);
+    margin: 1rem 0;
+}
+
+.mahavakya-display .shloka-trans {
+    font-size: 1rem;
+    color: var(--gold-light);
+    margin-top: .25rem;
+}
+
+.shloka-source { font-size: .78rem; color: rgba(255,255,255,.35); margin-top: .25rem; }
+
+.mahavakya-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: .75rem;
+}
+
+.mv-card {
+    background: var(--cream);
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    text-align: center;
+}
+
+.mv-text {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--brown-deep);
+    margin-bottom: .3rem;
+}
+
+.mv-trans { font-size: .85rem; color: var(--saffron); font-weight: 600; margin-bottom: .2rem; }
+.mv-source { font-size: .72rem; color: var(--text-light); font-style: italic; }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .sidebar { width: 100%; height: auto; position: relative; }
+    main { margin-left: 0; }
+    .page { flex-direction: column; }
+    .content { padding: 1.25rem; }
+    .home-hero { flex-direction: column; padding: 1.75rem 1.25rem; }
+    .hero-om { font-size: 3.5rem; }
+    .hero-title-devanagari { font-size: 2.2rem; }
+    .toc-meta { flex-wrap: wrap; }
+}
+
+/* ─── KOSHTAKA PAGE ──────────────────────────────────────────────── */
+.koshtaka-block {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: border-color .15s;
+}
+
+.koshtaka-block:hover { border-color: var(--gold); }
+
+.koshtaka-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    background: var(--cream);
+}
+
+.koshtaka-num {
+    width: 36px; height: 36px;
+    background: var(--gold);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: .9rem;
+    flex-shrink: 0;
+}
+
+.koshtaka-titles { flex: 1; }
+
+.koshtaka-marathi {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-weight: 700;
+    font-size: .95rem;
+    color: var(--brown-deep);
+}
+
+.koshtaka-english { font-size: .82rem; color: var(--text-mid); }
+
+.koshtaka-page { font-size: .75rem; color: var(--text-light); flex-shrink: 0; }
+.koshtaka-chevron { color: var(--text-light); font-size: .75rem; flex-shrink: 0; }
+
+.koshtaka-body {
+    border-top: 2px solid var(--gold-light);
+    padding: 1.25rem 1.5rem;
+}
+
+.koshtaka-desc-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--cream-dark);
+}
+
+.koshtaka-desc-marathi {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: .88rem;
+    color: var(--brown-mid);
+    line-height: 1.7;
+}
+
+.koshtaka-desc-english {
+    font-size: .88rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+}
+
+/* Koshtaka table */
+.koshtaka-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .82rem;
+}
+
+.koshtaka-table th {
+    background: var(--brown-deep);
+    color: var(--white);
+    padding: .6rem .75rem;
+    text-align: center;
+    border: 1px solid var(--brown-mid);
+}
+
+.th-marathi {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-weight: 700;
+    font-size: .88rem;
+    margin-bottom: .15rem;
+}
+
+.th-english {
+    font-size: .72rem;
+    opacity: .75;
+    font-weight: 400;
+}
+
+.koshtaka-table td {
+    padding: .55rem .75rem;
+    border: 1px solid var(--cream-dark);
+    color: var(--text-mid);
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+.koshtaka-table tbody tr:nth-child(odd)  { background: var(--cream); }
+.koshtaka-table tbody tr:nth-child(even) { background: var(--white); }
+.koshtaka-table tbody tr:hover { background: var(--gold-light); }
+
+.koshtaka-table td:first-child {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-weight: 600;
+    color: var(--brown-deep);
+    white-space: nowrap;
+}
+
+/* Note block */
+.koshtaka-note {
+    margin-top: 1rem;
+    background: var(--saffron-light);
+    border-left: 4px solid var(--saffron);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: .85rem 1rem;
+}
+
+.note-label {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .07em;
+    color: var(--saffron-dark);
+    text-transform: uppercase;
+    margin-bottom: .4rem;
+}
+
+.note-marathi {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: .88rem;
+    color: var(--brown-mid);
+    margin-bottom: .35rem;
+    line-height: 1.7;
+}
+
+.note-english {
+    font-size: .85rem;
+    color: var(--text-mid);
+    font-style: italic;
+}
+
+/* ─── BILINGUAL CONCEPT CARDS ────────────────────────────────────── */
+.bilingual-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .75rem;
+    margin: .5rem 0;
+}
+
+.summary-marathi {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: .83rem;
+    color: var(--brown-mid);
+    line-height: 1.7;
+}
+
+.summary-english {
+    font-size: .83rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+}
+
+/* ─── BILINGUAL KEY POINTS ───────────────────────────────────────── */
+.bilingual-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem 1rem;
+    margin-top: .5rem;
+}
+
+.point-marathi {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: .82rem;
+    color: var(--brown-mid);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.point-marathi::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: .5rem;
+    top: .4em;
+}
+
+.point-english {
+    font-size: .82rem;
+    color: var(--text-mid);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.point-english::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--saffron);
+    font-size: .5rem;
+    top: .4em;
+}
+
+/* Language toggle */
+.lang-toggle {
+    display: flex;
+    gap: .4rem;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.lang-btn {
+    padding: .25rem .75rem;
+    border-radius: 999px;
+    border: 1.5px solid var(--cream-dark);
+    background: var(--white);
+    font-size: .78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .15s;
+    color: var(--text-mid);
+}
+
+.lang-btn:hover { border-color: var(--saffron); color: var(--saffron); }
+.lang-btn-active { background: var(--saffron); border-color: var(--saffron); color: var(--white); }
+
+.lang-label { font-size: .78rem; color: var(--text-light); margin-right: .25rem; }
+
+/* ─── ANALOGY BILINGUAL ──────────────────────────────────────────── */
+.analogy-bilingual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.analogy-lang-col p {
+    font-size: .86rem;
+    line-height: 1.65;
+    color: var(--text-mid);
+}
+
+.analogy-lang-col.marathi p {
+    font-family: 'Noto Sans Devanagari', serif;
+    color: var(--brown-mid);
+}
+
+.lang-col-label {
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: .35rem;
+}
+
+@media (max-width: 768px) {
+    .koshtaka-desc-pair,
+    .bilingual-summary,
+    .bilingual-points,
+    .analogy-bilingual { grid-template-columns: 1fr; }
+}
+
+.glos-def-marathi {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: .85rem;
+    color: var(--brown-mid);
+    margin-bottom: .2rem;
+    line-height: 1.7;
+}
+
+.analogy-page { font-size: .75rem; color: var(--text-light); flex-shrink: 0; }
