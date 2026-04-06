@@ -171,6 +171,18 @@
 </footer>
 
 <script>
+// Accordion toggle
+document.querySelectorAll(".acc-head").forEach(h=>{
+  h.addEventListener("click",()=>h.closest(".acc-item").classList.toggle("open"));
+});
+// Koshtaka toggle
+document.querySelectorAll(".koshtaka-header").forEach(h=>{
+  h.addEventListener("click",()=>h.closest(".koshtaka-block").classList.toggle("open"));
+});
+// Analogy toggle
+document.querySelectorAll(".analogy-header").forEach(h=>{
+  h.addEventListener("click",()=>h.closest(".analogy-card").classList.toggle("analogy-open"));
+});
 document.querySelectorAll('.acc-head').forEach(h=>{
   h.addEventListener('click',()=>h.closest('.acc-item').classList.toggle('open'));
 });

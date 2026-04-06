@@ -185,5 +185,19 @@
 
 </div>
 <footer><p>सार्थ, सटीक पंचीकरण — मराठी | Tukaram Book Depot, Mumbai, 2008</p></footer>
+<script>
+document.querySelectorAll(".acc-head").forEach(h=>{
+  if(!h.querySelector(".acc-chevron")){
+    let ch=document.createElement("span");ch.className="acc-chevron";ch.textContent="▼";h.appendChild(ch);
+  }
+  h.addEventListener("click",()=>h.closest(".acc-item").classList.toggle("open"));
+});
+document.querySelectorAll(".koshtaka-header").forEach(h=>{
+  h.addEventListener("click",()=>h.closest(".koshtaka-block").classList.toggle("open"));
+});
+document.querySelectorAll(".analogy-header").forEach(h=>{
+  h.addEventListener("click",()=>h.closest(".analogy-card").classList.toggle("analogy-open"));
+});
+</script>
 </body>
 </html>
